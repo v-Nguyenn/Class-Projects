@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=DrawListener
+comment0.text=\r\n\ \ <i>DrawListener</i>.\ This\ interface\ provides\ a\ basic\ capability\ for\r\n\ \ responding\ to\ keyboard\ in\ mouse\ events\ from\ {@link\ Draw}\ via\ callbacks.\r\n\ \ You\ can\ see\ some\ examples\ in\r\n\ \ <a\ href\="https\://introcs.cs.princeton.edu/java/36inheritance">Section\ 3.6</a>.\r\n\r\n\ \ <p>\r\n\ \ For\ additional\ documentation,\ see\r\n\ \ <a\ href\="https\://introcs.cs.princeton.edu/31datatype">Section\ 3.1</a>\ of\r\n\ \ <i>Computer\ Science\:\ An\ Interdisciplinary\ Approach</i>\r\n\ \ by\ Robert\ Sedgewick\ and\ Kevin\ Wayne.\r\n\r\n\ \ @author\ Robert\ Sedgewick\r\n\ \ @author\ Kevin\ Wayne\r\n
+comment1.params=x\ y
+comment1.target=void\ mousePressed(double,\ double)
+comment1.text=\r\n\ Invoked\ when\ the\ mouse\ has\ been\ pressed.\r\n\r\n\ @param\ x\ the\ x-coordinate\ of\ the\ mouse\r\n\ @param\ y\ the\ y-coordinate\ of\ the\ mouse\r\n
+comment2.params=x\ y
+comment2.target=void\ mouseDragged(double,\ double)
+comment2.text=\r\n\ Invoked\ when\ the\ mouse\ has\ been\ dragged.\r\n\r\n\ @param\ x\ the\ x-coordinate\ of\ the\ mouse\r\n\ @param\ y\ the\ y-coordinate\ of\ the\ mouse\r\n
+comment3.params=x\ y
+comment3.target=void\ mouseReleased(double,\ double)
+comment3.text=\r\n\ Invoked\ when\ the\ mouse\ has\ been\ released.\r\n\r\n\ @param\ x\ the\ x-coordinate\ of\ the\ mouse\r\n\ @param\ y\ the\ y-coordinate\ of\ the\ mouse\r\n
+comment4.params=x\ y
+comment4.target=void\ mouseClicked(double,\ double)
+comment4.text=\r\n\ Invoked\ when\ the\ mouse\ has\ been\ clicked\ (pressed\ and\ released).\r\n\r\n\ @param\ x\ the\ x-coordinate\ of\ the\ mouse\r\n\ @param\ y\ the\ y-coordinate\ of\ the\ mouse\r\n
+comment5.params=c
+comment5.target=void\ keyTyped(char)
+comment5.text=\r\n\ Invoked\ when\ a\ key\ has\ been\ typed.\r\n\r\n\ @param\ c\ the\ character\ typed\r\n
+comment6.params=keycode
+comment6.target=void\ keyPressed(int)
+comment6.text=\r\n\ Invoked\ when\ a\ key\ has\ been\ pressed.\r\n\r\n\ @param\ keycode\ the\ key\ combination\ pressed\r\n
+comment7.params=keycode
+comment7.target=void\ keyReleased(int)
+comment7.text=\r\n\ Invoked\ when\ a\ key\ has\ been\ released.\r\n\r\n\ @param\ keycode\ the\ key\ combination\ released\r\n
+numComments=8

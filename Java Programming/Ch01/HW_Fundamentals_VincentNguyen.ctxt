@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=HW_Fundamentals_VincentNguyen
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ \ here.\ HW_Fundamentals_VincentNguyen\r\n\ We\ are\ making\ a\ 400\ by\ 400\ like\ a\ black\ and\ white\ checkered\ board\r\n\r\n\ @author\ (Vincent\ Nguyen)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=
+comment2.target=void\ bonusProgram()
+numComments=3

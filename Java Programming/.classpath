@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+    <!-- Include the source code directory -->
+    <classpathentry kind="src" path="src"/>
+
+    <!-- Include the external library (draw.jar) located in the lib/ folder -->
+    <classpathentry kind="lib" path="lib/draw.jar"/>
+
+    <!-- Define the output directory for compiled .class files -->
+    <classpathentry kind="output" path="out"/>
+</classpath>

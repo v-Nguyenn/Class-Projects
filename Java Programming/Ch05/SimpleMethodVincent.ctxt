@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=SimpleMethodVincent
+comment0.text=\r\n\ \ \ This\ program\ defines\ and\ calls\ a\ simple\ method.\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=
+comment2.target=void\ displayMessage()
+comment2.text=\r\n\ \ \ \ \ \ The\ displayMessage\ method\ displays\ a\ greeting.\r\n
+numComments=3

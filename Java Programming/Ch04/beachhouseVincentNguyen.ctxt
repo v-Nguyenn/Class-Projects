@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=beachhouseVincentNguyen
+comment0.text=\r\n\ Description\r\n\ \r\n\ Program\ 1\r\n\ draws\ a\ beach\ house\ with\ last\ name\ N-S\ using\ graphics\r\n\ \r\n\ Program\ 2\r\n\ A\ dice\ game\ that\ iterates\ 10\ times\ and\ determins\ a\ winner,\ \r\n\ drew\ some\ sick\ graphics\ \r\n\ \r\n\ @author\:\ Vincent\ Nguyen\r\n\ @version\:\ 10/6/24\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=
+comment2.target=void\ beachhouseVincentNguyen()
+comment3.params=
+comment3.target=void\ dice_game()
+numComments=4
