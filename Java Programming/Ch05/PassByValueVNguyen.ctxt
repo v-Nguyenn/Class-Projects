@@ -1,9 +1,0 @@
-#BlueJ class context
-comment0.target=PassByValueVNguyen
-comment0.text=\r\n\ \ \ This\ program\ demonstrates\ that\ only\ a\ copy\ of\ an\ argument\r\n\ \ \ is\ passed\ into\ a\ method.\r\n
-comment1.params=args
-comment1.target=void\ main(java.lang.String[])
-comment2.params=myValue
-comment2.target=void\ changeMe(int)
-comment2.text=\r\n\ \ \ \ \ \ The\ changeMe\ method\ accepts\ an\ argument\ and\ then\r\n\ \ \ \ \ \ changes\ the\ value\ of\ the\ parameter.\r\n
-numComments=3

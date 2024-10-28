@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=Sect3_4VincentNguyen
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=
+comment2.target=void\ nestedDecision()
+comment2.text=\ Ref\:\ pg130,\ Figure\ 3-11.\ Code\ Listing3-4.\r\n\ Explain\:\r\n\ \r\n\ \r\n
+comment3.params=
+comment3.target=void\ testResults()
+comment3.text=\ Ref\:\ pg134,\ Code\ Listing3-5.\r\n\ "The\ if-else-if\ statment\ makes\ certain\ types\ of\ 123"\r\n\ \r\n
+comment4.params=
+comment4.target=void\ trailingElse()
+comment4.text=\ Ref\:\ pg136,\ Code\ Listing3-6.\r\n\ "The\ trailing\ else\ clause,\ which\ appears\ at\ the\ end\ of\ the\ \r\n\ if-else-if\ statement\ is\ 123."\ "You\ will\ use\ it\ to\ catch\ 123"\r\n\ \r\n
+comment5.params=
+comment5.target=void\ logicalAnd()
+comment5.text=\ Ref\:\ pg139+,\ Table\ 3-6,\ Code\ Listing3-7.\r\n\ Explain\:\r\n\ \r\n\ \r\n
+comment6.params=
+comment6.target=void\ logicalOr()
+comment6.text=\ Ref\:\ pg141+,\ Table\ 3-7,\ Code\ Listing3-8.\r\n\ Explain\:\r\n\ \r\n\ \r\n
+numComments=7

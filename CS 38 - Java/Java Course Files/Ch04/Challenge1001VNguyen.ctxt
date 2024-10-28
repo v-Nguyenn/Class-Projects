@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Challenge1001VNguyen
+comment0.text=\r\n\ Description\ \r\n\ ____________\r\n\ Instructions\ are\ above\ each\ method\ so\ I\ put\ something\ brief.\ I\ also\ \r\n\ initially\ had\ all\ programs\ including\ the\ book\ here,\ but\ I\ was\ worried\r\n\ about\ file\ size\ so\ I\ seperated\ them\ into\ another\ class\r\n\ 4.\ reverseMe()\r\n\ \ \ \ reverses\ the\ function\ the\ user\ inputted\r\n\ \ \ \ \r\n\ 5.\ startToEnd()\r\n\ \ \ \ reads\ input\ from\ a\ keyboard\ and\ uses\ a\ loop\ to\ read\ and\ \r\n\ \ \ \ validate\ the\ range\r\n\ \r\n\ 6.\ fileWriteStartToEnd()\r\n\ \ \ \ writes\ numbers\ to\ a\ file\r\n\ \r\n\ 7.\ fileCstudents()\r\n\ \ \ \ reads\ the\ file\ studentsByVNguyen.txt\ and\ prints\ only\ the\ \r\n\ \ \ \ students\ from\ a\ 2.00\ gpa\ to\ a\ 2.99\ gpa\r\n\ ____________\r\n\ @author\ Vincent\ Nguyen\r\n\ @version\ 10/11/24\r\n
+comment1.params=
+comment1.target=void\ reverseMe()
+comment2.params=
+comment2.target=void\ startToEnd()
+comment3.params=
+comment3.target=void\ fileWriteStartToEnd()
+comment4.params=
+comment4.target=void\ fileCstudents()
+numComments=5

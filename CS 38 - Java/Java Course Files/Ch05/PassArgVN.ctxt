@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=PassArgVN
+comment0.text=\r\n\ \ \ This\ program\ demonstrates\ a\ method\ with\ a\ parameter.\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=num
+comment2.target=void\ displayValue(int)
+comment2.text=\r\n\ \ \ \ \ \ The\ displayValue\ method\ displays\ the\ value\r\n\ \ \ \ \ \ of\ its\ integer\ parameter.\r\n
+numComments=3

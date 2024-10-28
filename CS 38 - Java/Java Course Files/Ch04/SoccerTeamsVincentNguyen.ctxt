@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=SoccerTeamsVincentNguyen
+comment0.text=\r\n\ \ \ This\ program\ calculates\ the\ number\ of\ soccer\ teams\ that\ a\ \r\n\ \ \ youth\ league\ may\ create\ from\ the\ number\ of\ available\ players.\ \r\n\ \ \ Input\ validation\ is\ demonstrated\ with\ while\ loops.\r\n\ \ \ \r\n\ \ \ author\:\ Vincent\ Nguyen\r\n\ \ \ version\:\ 10/03/24\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+numComments=2

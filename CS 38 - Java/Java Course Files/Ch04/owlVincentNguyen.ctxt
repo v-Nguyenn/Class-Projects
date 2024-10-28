@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=owlVincentNguyen
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ owlVincentNguyen\ here.\r\n\ \r\n\ This\ is\ a\ drawing\ of\ an\ owl\r\n\ Draw\ the\ ears,\ nose,\ eye\ and\ your\ name.\ You\ can\ draw\ the\ rest\r\n\ at\ home.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=void\ owl()
+numComments=2
