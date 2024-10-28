@@ -1,6 +1,7 @@
 {
    "java.project.referencedLibraries": [
-    "f:\\Java Programming\\Libs\\draw.jar"
+    "f:\\Java Programming\\Libs\\draw.jar",
+    "Libs/Draw-1.jar"
 ],
 "java.project.sourcePaths": [
     "Ch01",
