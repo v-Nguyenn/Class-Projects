@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=Circle
+comment0.text=\r\n\ Circle\ class\ represents\ a\ circle\ with\ a\ specific\ radius.\r\n\ It\ calculates\ the\ area,\ diameter,\ and\ circumference,\ \r\n\ and\ can\ draw\ itself\ on\ a\ graphical\ interface.\r\n\ \r\n\ @author\ Vincent\ Nguyen\r\n\ @version\ 11/03/24\r\n
+comment1.params=r
+comment1.target=Circle(double)
+comment2.params=newValue
+comment2.target=void\ setRadius(double)
+comment3.params=
+comment3.target=double\ getRadius()
+comment4.params=
+comment4.target=double\ getArea()
+comment5.params=
+comment5.target=double\ getDiameter()
+comment6.params=
+comment6.target=double\ getCircumference()
+comment7.params=
+comment7.target=java.lang.String\ toString()
+comment7.text=\r\n\ Returns\ a\ string\ with\ the\ area,\ diameter,\ and\ circumference.\r\n\r\n\ @return\ Formatted\ string\ with\ circle\ details\r\n
+comment8.params=scr
+comment8.target=void\ drawMe(Draw)
+comment8.text=\r\n\ Draws\ the\ circle\ on\ the\ given\ screen.\r\n\r\n\ @param\ scr\ The\ drawing\ object\ to\ use\r\n
+numComments=9

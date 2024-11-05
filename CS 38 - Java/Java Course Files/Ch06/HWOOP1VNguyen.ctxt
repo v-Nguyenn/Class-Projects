@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=HWOOP1VNguyen
+comment0.text=\r\n\ HWOOP1VNguyen\ has\ all\ the\ programming\ challenges.\r\n\ It\ gets\ the\ radius\ from\ the\ user,\ creates\ a\ Circle,\r\n\ shows\ its\ details,\ and\ draws\ it.\r\n\ \r\n\ @author\ Vincent\ Nguyen\r\n\ @version\ 11/03/24\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment1.text=\r\n\ Main\ method\ to\ run\ the\ program.\r\n\r\n\ @param\ args\ Command-line\ arguments\ (not\ used)\r\n
+numComments=2

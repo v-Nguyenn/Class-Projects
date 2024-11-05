@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=nXnBoardVNguyen
+comment0.text=\r\n\ Description\r\n\ This\ program\ creates\ a\ 3x3\ board\ with\ a\ randomly\ rotated\ \r\n\ name\ in\ the\ center\ of\ each\ square.\r\n\ ______________________\r\n\ Programming\ Challenge\ A\r\n\ Last\ name\ is\ N\ so\ I\ am\ doing\ a\ 3x3\ board\ with\ a\ name\r\n\ in\ the\ middle\ of\ each\ square\ with\ two\ alternating\ colors.\ \r\n\ ______________________\r\n\ @author\ Vincent\ Nguyen\ \r\n\ @version\ 11/03/24\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment1.text=\r\n\ Main\ method\ to\ start\ and\ display\ board.\r\n\ Calls\ the\ method\ to\ setup\ the\ graphics\ screen,\r\n\ draw\ rectangles,\ display\ the\ name\ in\ eac\r\n\ square,\ and\ adds\ a\ title.\r\n\ \r\n\ @param\ args\ not\ used\r\n
+comment2.params=scr
+comment2.target=void\ setUp(Draw)
+comment2.text=\r\n\ Sets\ up\ the\ graphics\ screen\ with\ dimensions,\ background\ color,\ \r\n\ and\ title.\r\n\ \r\n\ @param\ scr\ The\ Draw\ object\ to\ setup\r\n
+comment3.params=scr\ num
+comment3.target=void\ title(Draw,\ int)
+comment3.text=\r\n\ Displays\ a\ title\ text\ in\ the\ center\ of\ the\ screen.\r\n\ \r\n\ @param\ scr\ The\ Draw\ object\ used\ to\ display\ text\r\n\ @param\ num\ The\ font\ size\ for\ the\ title\ text\r\n
+comment4.params=scr
+comment4.target=void\ drawRectangles(Draw)
+comment4.text=\r\n\ Draws\ a\ 3x3\ grid\ of\ rectangles\ on\ the\ graphics\ screen\r\n\ Each\ rectangle\ represents\ a\ cell\ on\ the\ 3x3\ board\r\n\ \r\n\ @param\ scr\ The\ Draw\ object\ to\ setup\r\n
+comment5.params=scr\ rndNum
+comment5.target=void\ centerNames(Draw,\ java.util.Random)
+comment5.text=\r\n\ Displays\ the\ name\ in\ each\ rectangle\ with\ random\ rotation\ and\ alternating\ colors.\r\n\ Colors\ alternate\ between\ Yoda\ Green\ and\ Ocean\ Blue.\r\n\ \r\n\ @param\ scr\ The\ Draw\ object\ to\ display\ text\r\n\ @param\ rndNum\ Random\ object\ for\ generating\ random\ rotation\ angles\r\n
+numComments=6

@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=ClockVN
+comment0.text=\r\n\ Description\r\n\ Ref\:\ Module02\ Fundamentals,\ \r\n\ \ \ \ \ \ Java\ Templates\ &\ BlueJ\ Intro\r\n\ Class\ name\:\r\n\ Fields\:\r\n\ Methods\:\ \r\n\ @author\ Vincent\ Nguyen\r\n\ @version\ 10/31/24\r\n
+comment1.params=
+comment1.target=ClockVN()
+comment2.params=newValue
+comment2.target=void\ setHour(int)
+comment3.params=newValue
+comment3.target=void\ setMinute(int)
+comment4.params=newValue
+comment4.target=void\ setAmPm(java.lang.String)
+comment5.params=newMinutes
+comment5.target=void\ advanceTime(int)
+comment5.text=\r\n\ \ Method\ advanceTime\r\n\ \ Note\:\ what\ happens\ if\ it\ goes\ over\ 59??\r\n\ \ @param\ update\ minute\ to\ an\ additional\ newMinutes\r\n
+comment6.params=
+comment6.target=java.lang.String\ getTime()
+comment6.text=\r\n\ \ Method\ getTime\r\n\ \ \r\n\ \ @return\ The\ time\ in\ this\ format\ "8\:32\ am"\r\n
+numComments=7
