@@ -19,10 +19,17 @@ public class ClockVN
     // constructor
     public ClockVN()
     {
-        
+        hour = 12;
+        minute = 34;
+        amPm = "am";
     }
 
     // mutators 
+    /**
+     * Method setHour
+     * 
+     * @param newValue is used to set hour
+     */
     public void setHour(int newValue)
     {
         hour = newValue;
@@ -59,4 +66,5 @@ public class ClockVN
         String value = hour + ":" + minute + amPm;
         return value;
     }
+    
 }

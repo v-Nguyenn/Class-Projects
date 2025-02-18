@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=ObjectArrayDemoVNguyen
+comment0.text=\r\n\ \ \ This\ program\ works\ with\ an\ array\ of\ three\r\n\ \ \ BankAccount\ objects.\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=array
+comment2.target=void\ createAccounts(BankAccount[])
+comment2.text=\r\n\ \ \ \ \ \ The\ createAccounts\ method\ creates\ a\ BankAccount\r\n\ \ \ \ \ \ object\ for\ each\ element\ of\ an\ array.\ The\ user\r\n\ \ \ \ \ \ is\ asked\ for\ each\ account's\ balance.\r\n\ \ \ \ \ \ @param\ array\ The\ array\ to\ reference\ the\ accounts\r\n
+comment3.params=
+comment3.target=void\ demoWithMoreAcct()
+comment3.text=\r\n\ \ A\ more\ robust\ test\ of\ BankAccount\r\n\ \ 1-Make\ an\ array\ of\ BankAccounts,\ not\ just\ 3\ above\r\n\ \ 2-Print\ the\ array\ of\ BankAccounts,\ not\ just\ 3\ above\r\n\ \ 3-Do\ some\ withdraws\ and\ deposits\r\n
+comment4.params=acct
+comment4.target=void\ printArray(BankAccount[])
+numComments=5

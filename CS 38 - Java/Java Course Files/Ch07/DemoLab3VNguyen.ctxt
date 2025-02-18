@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=DemoLab3VNguyen
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=scr\ x\ y\ radius
+comment2.target=void\ drawSnowman(Draw,\ int,\ int,\ int)
+comment3.params=scr
+comment3.target=void\ demoBackground(Draw)
+comment4.params=scr\ xCenter\ yBase\ treeIndex
+comment4.target=void\ drawTree(Draw,\ int,\ int,\ int)
+comment5.params=scr
+comment5.target=void\ animateOrnaments(Draw)
+comment6.params=scr\ x\ y\ length
+comment6.target=void\ drawSnowflake(Draw,\ int,\ int,\ int)
+comment7.params=scrn
+comment7.target=void\ setup(Draw)
+comment8.params=canvas
+comment8.target=void\ title(Draw)
+comment9.params=scr\ xSize\ ySize
+comment9.target=void\ showGrid(Draw,\ int,\ int)
+numComments=10

@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=ValueReturn_VNguyen
+comment0.text=\r\n\ \ \ This\ program\ demonstrates\ a\ value-returning\ method.\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=num1\ num2
+comment2.target=int\ sum(int,\ int)
+comment2.text=\r\n\ \ \ \ \ \ The\ sum\ method\ returns\ the\ calculation\ of\ their\ argument.\r\n\ \ \ \ \ \ \r\n\ \ \ \ \ \ @param\ num1\ The\ first\ number\ to\ be\ added.\r\n\ \ \ \ \ \ @param\ num2\ The\ second\ number\ to\ be\ added.\r\n\ \ \ \ \ \ @return\ The\ sum\ of\ num1\ and\ num2.\r\n
+numComments=3

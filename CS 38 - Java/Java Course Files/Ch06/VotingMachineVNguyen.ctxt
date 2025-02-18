@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=VotingMachineVNguyen
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ VotingMachineVNguyen\ here.\r\n\r\n\ @author\ Vincent\ Nguyen\ \ \ \r\n\ @version\ 11/07/24\r\n
+comment1.params=
+comment1.target=void\ clear()
+comment2.params=
+comment2.target=void\ voteD()
+comment3.params=
+comment3.target=void\ voteR()
+comment4.params=
+comment4.target=int\ getD()
+comment5.params=
+comment5.target=int\ getR()
+numComments=6

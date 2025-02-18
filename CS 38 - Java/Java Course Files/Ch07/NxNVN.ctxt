@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=NxNVN
+comment1.params=
+comment1.target=NxNVN()
+comment2.params=
+comment2.target=void\ fillArrayWithUniqueRandoms()
+comment3.params=
+comment3.target=java.lang.String\ toString()
+comment4.params=
+comment4.target=void\ printMe()
+comment5.params=num
+comment5.target=int\ sumRow(int)
+comment6.params=num
+comment6.target=int\ sumCol(int)
+comment7.params=
+comment7.target=void\ shuffle()
+numComments=8

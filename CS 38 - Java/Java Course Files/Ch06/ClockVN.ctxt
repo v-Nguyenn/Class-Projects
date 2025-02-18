@@ -5,6 +5,7 @@ comment1.params=
 comment1.target=ClockVN()
 comment2.params=newValue
 comment2.target=void\ setHour(int)
+comment2.text=\r\n\ Method\ setHour\r\n\ \r\n\ @param\ newValue\ is\ used\ to\ set\ hour\r\n
 comment3.params=newValue
 comment3.target=void\ setMinute(int)
 comment4.params=newValue

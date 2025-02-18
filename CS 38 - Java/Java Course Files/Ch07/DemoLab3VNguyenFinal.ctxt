@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=DemoLab3VNguyenFinal
+comment0.text=\r\n\ Description\ \r\n\ \ \ Lab\ Project\ that\ includes\ a\ new\ snowman-drawing\ feature.\r\n\ @author\ Vincent\ Nguyen\r\n\ @version\ 11/27/24\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment10.params=scr\ xSize\ ySize
+comment10.target=void\ showGrid(Draw,\ int,\ int)
+comment2.params=scr\ x\ y\ radius
+comment2.target=void\ drawSnowman(Draw,\ int,\ int,\ int)
+comment3.params=scr
+comment3.target=void\ demo1(Draw)
+comment4.params=
+comment4.target=void\ demo2()
+comment5.params=scrn
+comment5.target=void\ setup(Draw)
+comment6.params=canvas
+comment6.target=void\ title(Draw)
+comment7.params=scr
+comment7.target=void\ demoBackground(Draw)
+comment8.params=scr\ xCenter\ yBase
+comment8.target=void\ drawTree(Draw,\ int,\ int)
+comment9.params=scr\ x\ y\ length
+comment9.target=void\ drawSnowflake(Draw,\ int,\ int,\ int)
+numComments=11
