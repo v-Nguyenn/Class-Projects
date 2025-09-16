@@ -1,0 +1,2 @@
+ame - ")
+   while guess != rando
