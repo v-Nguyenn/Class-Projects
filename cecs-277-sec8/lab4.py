@@ -81,13 +81,14 @@ def main():
          if maze[new_loc[0]][new_loc[1]] == '*':
             print("You cannot move there.") # location stays the same
          else:
-            location = new_loc  # Only update if not a wall
+            location = new_loc  # Only updates if location is not a wall
       else:
          print("Out of the maze")
 
       # Check if the new location is the end 'F'
       if maze[location[0]][location[1]] == 'F' or maze[location[0]][location[1]] == 'f':
          at_end = True
+         display_maze(maze, location)
          print("Congratulations! You solve the maze!")
    
    # print(f"New location: {location}") # For testing, print new location
