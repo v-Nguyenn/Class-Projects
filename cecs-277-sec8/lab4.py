@@ -58,6 +58,7 @@ def main():
       print("2. Go South")
       print("3. Go East")
       print("4. Go West")
+      print("5. Exit")
       user_input = check_input.get_int_range("Enter choice: ", 1, 5)
       print()
 
@@ -71,7 +72,7 @@ def main():
          new_loc = (location[0], location[1] + 1)
       elif user_input == 4: # Go West
          new_loc = (location[0], location[1] - 1)
-      elif user_input == 5: 
+      elif user_input == 5: # Exit
          print("Exiting the maze.")
          break
 
