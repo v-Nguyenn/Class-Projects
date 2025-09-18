@@ -12,7 +12,7 @@ def read_maze():
       maze = []
       for line in maze_data:
          maze.append(list(line))
-      return maze
+      return maze #returns a list of lists
 
 # Finds the start position 'S' in the maze, takes a list of strings as input
 def find_start(maze):
