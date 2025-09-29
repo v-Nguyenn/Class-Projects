@@ -40,6 +40,7 @@ def main():
             # checks if user has guessed incorrectly 6 times
             if (num_incorrect == 6):
                 print("You lose!")
+                print(f"The word was {hangman_word}.")
 
                 # breaks out of loop because lost
                 continue_play = False
