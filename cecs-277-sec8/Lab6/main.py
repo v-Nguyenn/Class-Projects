@@ -21,17 +21,20 @@ def take_turn(player):
    """
    player.roll_dice() # Roll the player's dice
    dice = str(player) # Get the string value of the player's dice
-   print(f" {dice}")  # Display then player's dice
-   
-   if player.has_three_of_a_kind(): # Check if the player has three of a kind
+   print(f"{dice}")   # Display then player's dice
+
+   # Check if the player has a series
+   if player.has_series():
+      print("You got a series of 3! +3 points")
+      player.points += 3
+      # Check if the player has three of a kind
+   elif player.has_three_of_a_kind(): 
       print("You got a three of a kind! +3 points")
       player.points += 3
-   elif player.has_pair(): # Check if the player has a pair
-      print("You got a pair! +2 points")
-      player.points += 2
-   elif player.has_series():
-      print("You got a series of 3! +4 points")
-      player.points += 4
+      # Check if the player has a pair
+   elif player.has_pair(): 
+      print("You got a pair! +1 points")
+      player.points += 1
    else:
       print("Aww. Too Bad.")
    print(f"Score = {player.points}") # Display the player's score  
@@ -40,14 +43,21 @@ def take_turn(player):
 def main(): 
    """ Main function to run the dice game.
    """
-   user = Player()  # Create player once
+   # Create a Player object to prevent multiple creations
+   # each time the user wants to play again
+   user = Player()  
    print("-Yahtzee-")
    is_running = True
 
-   while is_running: # Loops until the user enters 'n' to quit
-      take_turn(user) # Takes turn for the player
+   # Loops until the user enters 'n' to quit
+   while is_running: 
+      # Takes turn for the player
+      take_turn(user) 
       # Checks if the user wants to play again
-      play_again = check_input.get_yes_no("Play again? (y/n): \n")
+      play_again = check_input.get_yes_no("Play again? (y/n): ")
+      print()
+      # If the user enters 'n', end the game because check_input returns False
+      # then sets is_running to False to end the while loop
       if not play_again:
          print("Game Over.")
          print(f"Final Score = {user.points}")
