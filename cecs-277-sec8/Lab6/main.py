@@ -25,8 +25,8 @@ def take_turn(player):
 
    # Check if the player has a series
    if player.has_series():
-      print("You got a series of 3! +3 points")
-      player.points += 3
+      print("You got a series of 3! +2 points")
+      player.points += 2
       # Check if the player has three of a kind
    elif player.has_three_of_a_kind(): 
       print("You got a three of a kind! +3 points")
