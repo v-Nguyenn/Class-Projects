@@ -34,8 +34,8 @@ class Die:
       Returns:
          int: A random integer between 1 and the number of sides.
       """
-      value = random.randint(1, self.sides)
-      return value 
+      self._value = random.randint(1, self._sides)
+      return self._value 
 
 
    def __str__(self):
@@ -47,7 +47,7 @@ class Die:
       Returns:
          str: The Die's value as a string.
       """
-      return(str(self.value))
+      return(str(self._value))
    
 
    def __lt__(self, other):
@@ -60,7 +60,7 @@ class Die:
       Returns:
          bool: return true if the value of self is less than the value of other
       """
-      if self.value < other.value:
+      if self._value < other._value:
          return True
       else:
          return False
@@ -77,7 +77,7 @@ class Die:
       Returns:
          bool: return true if the value of self is equal to the value of other
       """
-      if self.value == other.value:
+      if self._value == other._value:
          return True
       else:
          return False
@@ -93,5 +93,5 @@ class Die:
       Returns:
          int: The difference between the value of self and the value of other.
       """
-      return self.value - other.value
+      return self._value - other._value
    
