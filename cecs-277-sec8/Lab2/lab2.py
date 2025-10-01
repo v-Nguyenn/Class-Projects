@@ -7,7 +7,7 @@
 # continues until the player loses their money or quit.
 
 import random
-import check_input
+import utils.check_input as check_input
 
 def get_users_bet(money):
    print(f"You have ${money}.")

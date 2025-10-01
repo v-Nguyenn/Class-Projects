@@ -4,9 +4,8 @@
 # made up of contact objects. The contact is imported from a contact class which has the 
 # name, phone number, address, city, and zip code from 'addresses.txt'
 
-import check_input
+import utils.check_input as check_input
 from contact import Contact
-
 def read_file():
    """
    Opens and reads one line creating an object and then stores it in a list.

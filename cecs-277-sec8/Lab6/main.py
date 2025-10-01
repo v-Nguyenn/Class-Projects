@@ -4,7 +4,7 @@
 # Dice Game that awards the user points for a pair,
 # three of a kind, or a series. 
 
-import check_input
-from die import Die
+import Lab1.check_input as check_input
+from Lab6.die import Die
 
 def main():

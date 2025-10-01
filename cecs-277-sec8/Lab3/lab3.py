@@ -2,10 +2,10 @@
 # 9/8/25
 # user plays hangman and gest 6 incorrect guesses before losing
 
-import check_input
+import utils.check_input as check_input
 import dictionary
 import random
-from dictionary import words
+from Lab3.dictionary import words
 
 def main():
     # checks if user wants to play again

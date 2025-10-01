@@ -2,10 +2,10 @@
 # 9/8/25
 #
 
-import check_input
-import dictionary
+import utils.check_input as check_input
+import Lab3.dictionary as dictionary
 import random
-from dictionary import words
+from Lab3.dictionary import words
 
 def main():
     print("-Hangman-\n")

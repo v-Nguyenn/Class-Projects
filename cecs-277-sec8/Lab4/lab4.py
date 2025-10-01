@@ -3,7 +3,7 @@
 # Brian Gutierrez and Vincent Nguyen
 # October 01, 2024
 
-import check_input
+import utils.check_input as check_input
 
  # Reads the maze from a text file and returns it as a list of lists
 def read_maze():

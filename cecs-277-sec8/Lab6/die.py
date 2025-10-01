@@ -7,9 +7,6 @@ import random
 
 class Die:
    """ A class representing a die with a specified number of sides.
-
-   Attributes:
-       sides (int): The number of sides on the die.
    """
 
    def __init__(self, sides=6):
@@ -49,12 +46,12 @@ class Die:
       """
       return(str(self.value))
    
-   def __lt__(self, other)
+   def __lt__(self, other):
       """ Compares two Die objects based on their values.
       
       Args:
          self (Die): the current object
          other (Die): another Die object to compare to
-         
+
       Returns:
          """

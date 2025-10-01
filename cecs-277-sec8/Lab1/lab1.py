@@ -5,7 +5,7 @@
 # asks the user to guess a number between 1 and 100
 
 import random
-import check_input
+import Lab1.check_input as check_input
 
 def main():
    random_number = random.randint(1, 100)
