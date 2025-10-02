@@ -25,3 +25,7 @@ venv/
 *.exe
 *.o
 *.obj
+
+# Ignore system files
+.DS_Store
+Thumbs.db
