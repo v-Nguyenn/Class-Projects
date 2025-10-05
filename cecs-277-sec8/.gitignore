@@ -5,4 +5,5 @@ lab-pdfs/CECS277-Lab02-3CardMonte.pdf
 lab-pdfs/CECS277-Lab03-Lists.pdf
 lab-pdfs/CECS277-Lab04-FileIO.pdf
 lab-pdfs/CECS277-Lab05-Classes.pdf
-lab-pdfs/CECS277-Lab06-Composition.pdf
+lab-pdfs/CECS277-Lab06-Composition.pdf__pycache__/
+*.pyc
