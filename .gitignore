@@ -1,2 +1,27 @@
+# --- IGNORE ---
+# Ignore all PDFs and docs in these folders
 Notes and Assignments/ 
 Data Structure Documents/
+
+# Ignore IDE metadata, personal settings
+.idea/
+.vscode/
+
+# Ignore Python cache and virtual environments
+# Java
+*.class
+*.jar
+*.war
+target/
+
+# Python:
+__pycache__/
+*.pyc
+*.pyo
+.env 
+venv/
+
+# Ignore compiled binaries
+*.exe
+*.o
+*.obj
