@@ -121,6 +121,6 @@ class Player:
       """
       # I had an error here because I used 'str' as a variable name which
       # conflicts with the built-in str() function. Changed it to 'result'.
-      result = "D1=" + str(self._dice[0]) + ", D2=" + str(self._dice[1]) + \
-          ", D3=" + str(self._dice[2])
+      result = "D1= " + str(self._dice[0]) + ", D2= " + str(self._dice[1]) + \
+          ", D3= " + str(self._dice[2])
       return result
