@@ -151,53 +151,5 @@ def hasAdjacentDupplicate(data:list) -> list :
     ''' i. Return true if the list contains adjacnet duplicates'''
     
 
-    
-
-        
-        
-            
-        
-        
-            
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 main()
