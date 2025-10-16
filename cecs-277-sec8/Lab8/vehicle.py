@@ -20,11 +20,11 @@ class Vehicle(ABC):
       Constructor for Vehicle class sets name, label, speed
       Returns: None
       """
-      self.name = name
-      self.initial = initial
-      self.speed = speed
-      self.position = 0
-      self.energy = 100
+      self._name = name
+      self._initial = initial
+      self._speed = speed
+      self._position = 0
+      self._energy = 100
 
    # Decorator for initial 
    @property 
@@ -33,7 +33,7 @@ class Vehicle(ABC):
    
    @initial.setter
    def initial(self, value):
-      self._initialinitial = value
+      self._initial = value
 
    # Decorator for position
    @property
@@ -57,40 +57,39 @@ class Vehicle(ABC):
    def fast(self, obs_loc):
       """
       Passes in the location of the next obstacle if there is one
-      then randomzies the distance traveled between +/- 1.
+      then randomizes the distance traveled between +/- 1.
       Returns: a string that describes the event that occurred 
                with the name of the vehicle and distance traveled
       """   
-      # Checks if you enough energy to move
+      # Checks if you have enough energy to move
       if self.energy >= 5:
-         distance = random.randint(self.speed -1, self.speed + 1)
+         distance = random.randint(self._speed -1, self._speed + 1)
          self.position += distance
          self.energy -= 5
          
          # Checks if you hit an obstacle
          if obs_loc != -1 and self.position >= obs_loc:
             self.position = obs_loc
-            return(f"{self.name} CRASHED into an obstacle! ")
+            return f"{self._name} CRASHED into an obstacle! "
 
          # Moves fast successfully
-         return(f"{self.name} moved {distance} spaces forward.")
+         return f"{self._name} moved {distance} spaces forward."
       else:
          # Not enough energy to move, moves only 1 space
          self.position += 1
-         return(f"{self.name} tries to ram forward, but is all out \
-                of energy! ")
-      
+         return f"{self._name} tries to move fast, but is all out of energy! "
+
 
    def slow(self, obs_loc):
       """
       Passes in the location of the next obstacle if there is one and
-      move the vehicle at half speed. If there is no obstacle it will
+      move the vehicle at half speed. If there is an obstacle it will
       will go around it.
       Returns: a string that describes the event that occurred 
                with the name of the vehicle and distance traveled
       """
-      half_speed = self.speed // 2 
-      distance = random.randint(half_speed -1 , half_speed + 1)
+      half_speed = int(self._speed // 2)
+      distance = random.randint(half_speed - 1, half_speed + 1)
 
       # Checks if there is an obstacle and moves around it
       # obs_loc = -1 means no obstacle
@@ -98,22 +97,21 @@ class Vehicle(ABC):
       # the obstacle is within the distance traveled
       if obs_loc != -1 and self.position < obs_loc <= self.position + distance:
          # Moves around the obstacle
-         self.position = obs_loc + 1 
-         return(f"{self.name} slowly dodges the obstacle and \
-                moves {distance} units!")
+         self.position = obs_loc + 1
+         return f"{self._name} slowly dodges the obstacle and moves {distance} units!"
+
       else:
          # Moves normally
          self.position += distance
-         return(f"{self.name} slowly moves {distance} units!")
-      
+         return f"{self._name} slowly moves {distance} units!" 
+
 
    def __str__(self):
       """
       Returns: a string that displays the vehicle's name, position, and
       energy.
       """
-      return(f"{self.name} [Position - {self.position}, Energy - {self.energy}]")
-
+      return f"{self._name} [Position - {self.position}, Energy - {self.energy}]"
 
    @abstractmethod
    def special_move(self, obs_loc):

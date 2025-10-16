@@ -1,0 +1,47 @@
+Lab 8 Bug Tracker
+==================
+
+1. [FIXED] Car constructor error - main.py line 36
+   - Problem: Passing energy parameter to Car()
+   - Error: TypeError: Car.__init__() takes 2 positional arguments but 3 were given
+   - Fix: Removed energy argument from Car("Lightning Car", 100) → Car("Lightning Car")
+   - Date: 10/15/2025
+
+2. [FIXED] Attribute access errors - car.py, motorcycle.py, truck.py
+   - Problem: Using self.name and self.speed without properties
+   - Error: AttributeError when accessing name/speed
+   - Fix: Changed all instances to self._name and self._speed
+   - Date: 10/15/2025
+
+3. [FIXED] Missing super().__init__() in subclasses
+   - Problem: Subclass constructors not calling parent constructor
+   - Error: TypeError: Vehicle.__init__() missing 2 required positional arguments: 'initial' and 'speed'
+   - Traceback:
+     File "main.py", line 37, in main
+       Motorcycle("Swift Bike"),
+     TypeError: Vehicle.__init__() missing 2 required positional arguments
+   - Fix: Added super().__init__(name, 'C', 7) to Car
+         Added super().__init__(name, 'M', 8) to Motorcycle
+         Added super().__init__(name, 'T', 6) to Truck
+   - Date: 10/15/2025
+
+4. [FIXED] Truck position bug - truck.py special_move()
+   - Problem: Setting position instead of incrementing
+   - Error: self.position = distance (overwrites position)
+   - Fix: Changed to self.position += distance
+   - Date: 10/15/2025
+
+5. [FIXED] Wrong error message - vehicle.py fast() method
+   - Problem: Says "tries to ram forward" instead of "tries to move fast"
+   - Fix: Updated error message in else clause
+   - Date: 10/15/2025
+   
+6. [FIXED] TypeError: 'float' object cannot be interpreted as an integer
+   - File: motorcycle.py line 33, vehicle.py slow() method
+   - Problem: reduced_speed = self._speed * 0.75 produces a float
+   - Error: random.randint() requires integers, not floats
+   - Fix: Changed to int(self._speed * 0.75) in both files
+   - Date: 10/15/2025
+==================
+Current Status: All bugs fixed, testing game loop
+==================
