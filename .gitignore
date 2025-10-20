@@ -3,6 +3,9 @@
 Notes and Assignments/ 
 Data Structure Documents/
 
+# Ignore peer review folder
+cecs-277-sec8/peer_review/
+
 # Ignore IDE metadata, personal settings
 .idea/
 .vscode/
