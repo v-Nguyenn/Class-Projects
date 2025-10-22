@@ -8,5 +8,6 @@ lab-pdfs/CECS277-Lab05-Classes.pdf
 lab-pdfs/CECS277-Lab06-Composition.pdf__pycache__/
 lab-pdfs/CECS277-Lab07-Inheritance.pdf
 lab-pdfs/CECS277-Lab08-Abstract.pdf
+lab-pdfs/CECS277-Lab09-Interfaces.pdf
 *.pyc
 .DS_Store
