@@ -1,8 +1,8 @@
 """
 Brian Gutierrez and Vincent Nguyen
 Lab 9 
-CECS 227 Section 8 
-Fall 2024
+CECS 277 Section 8 
+Fall 2025
 October 20, 2025
 """
 
