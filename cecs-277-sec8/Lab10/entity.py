@@ -37,3 +37,14 @@ class Entity(ABC):
          self._hp = 0
    
    def heal(self):
+      """ Restores the entity's hp to max_hp """
+      self._hp = self._max_hp
+
+   def __str__(self):
+      """ Returns a string in the specified format Name: hp/max_hp"""
+      return (f"{self.name}\nHP: {self.hp}/{self._max_hp}")
+   
+   @abstractmethod
+   def attack(self, entity):
+      """ Attack and do damage to opposing entity """
+      pass
