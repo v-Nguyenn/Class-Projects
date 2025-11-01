@@ -31,7 +31,7 @@ class Entity(ABC):
       """ Subtracts the damage value from the hp """
       # Max returns the highest value and this ensures hp
       # is not negative
-      # self._hp = max(0, self._hp - dmg) 
+      # self._hp = max(0, self._hp - dmg) # same below
       self._hp = self._hp - dmg
       if self._hp < 0:
          self._hp = 0
