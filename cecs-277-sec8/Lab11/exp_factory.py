@@ -22,4 +22,4 @@ class ExpertFactory(EnemyFactory):
    """  
    def create_random_enemy(self):
       """ Returns an expert monster randomly. """
-      return choice([ExpGoblin, ExpTroll])
+      return choice([ExpGoblin(), ExpTroll()])

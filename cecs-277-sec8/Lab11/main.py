@@ -26,10 +26,12 @@ def main():
    # Creates an initial menu and asks for user name.
    print("Monster Trials")
    name = input("What is your name?: ").strip().lower().capitalize()
+   print()
    # Construct the hero after getting name.
    hero = Hero(name)
    finished = False
    print(f"You will face a series of 3 monsters, {hero.name}.")
+   print("Defeat them all to win.\n")
    # Creates the factory object to be called
    beginner_factory = BeginnerFactory()
    expert_factory = ExpertFactory()
@@ -42,24 +44,30 @@ def main():
 
    while not finished:
       # build menu from monsters list (last option = Quit)
+      print("Choose a monster to attack:")
       menu_lines = []
       for i, monster in enumerate(monsters):
          menu_lines.append(f"{i + 1}. {monster.name} HP: {monster.hp}")
       # Adds the quit since the list is only 3
       menu_lines.append(f"{len(monsters) + 1}. Quit\n")
       # Makes it print on multiple lines as desired
-      prompt = "\n".join(menu_lines) + "Enter choice"
+      prompt = "\n".join(menu_lines) + "Enter choice: "
       choice = get_int_range(prompt, 1, len(menu_lines))
+      print()
       # Checks if user quit first
       if choice == len(menu_lines):
+         print("Thank you for playing.")
          finished = True
          break 
       # Select the chosen monster. Since the index is 0 over we must subtract 1
       selected_monster = monsters[choice - 1]
       # Combat loop
       while selected_monster.hp > 0 and hero.hp > 0:
-         combat_menu = "1. Sword Attack\n2. Arrow Attack\nEnter choice:"
+         print(f"{hero.name}, HP: {hero.hp}\n"
+               f"{selected_monster.name}, HP: {selected_monster.hp}")
+         combat_menu = "1. Sword Attack\n2. Arrow Attack\nEnter choice: "
          action = get_int_range(combat_menu, 1, 2)
+         print("")
          if action == 1:
             # The hero attacks with melee attack
             print(hero.melee_attack(selected_monster))
@@ -73,11 +81,16 @@ def main():
       
       # Should exit loop if less so goes here to remove monster or end game if hero died
       if selected_monster.hp <= 0:
-         print(f"You have slain the {selected_monster.name}")
+         print(f"You have slain the {selected_monster.name}!\n")
          monsters.remove(selected_monster)
+         # Check if all monsters defeated
+         if len(monsters) == 0:
+            print("Congratulations! You defeated all three monsters! Game Over.")
+            finished = True 
+
       # Ends the game if the hero dies
       if hero.hp <= 0:
-         print(f"You have died.")
+         print(f"You have been obliterated.")
          finished = True
       
 if __name__ == "__main__":

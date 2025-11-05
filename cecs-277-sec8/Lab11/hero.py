@@ -28,7 +28,7 @@ class Hero(Entity):
       enemy.take_damage(dmg)
       return f"{self.name} slashes a {enemy.name} with a sword for {dmg} damage."
    
-   def ranged_attack(self, enemy):
+   def range_attack(self, enemy):
       """ 
       Deals damage based on the 1, 12 sided die to the enemy
 
