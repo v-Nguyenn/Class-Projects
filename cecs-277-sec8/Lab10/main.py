@@ -132,8 +132,5 @@ def main():
          game_over = True
 
          
-if __name__ == "__main__":
-   main()
-
-
-
+   if __name__ == "__main__":
+      main()

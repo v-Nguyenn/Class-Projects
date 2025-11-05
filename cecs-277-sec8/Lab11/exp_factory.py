@@ -11,8 +11,15 @@ from enemy_factory import EnemyFactory
 from exp_goblin import ExpGoblin
 from exp_troll import ExpTroll
 
-class ExpertFactory():
-   """ Class creates difficult enemies. """  
+class ExpertFactory(EnemyFactory):
+   """ Class creates difficult enemies.
+   
+   Functions:
+      create_random_enemy(self) - creates a random hard difficulty monster
+
+   Usage:
+      ExpertFactory().create_random_enemy()
+   """  
    def create_random_enemy(self):
       """ Returns an expert monster randomly. """
       return choice([ExpGoblin, ExpTroll])
