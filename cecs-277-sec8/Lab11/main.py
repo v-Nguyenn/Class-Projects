@@ -10,6 +10,7 @@ must defeat three monsters to pass the trial. Uses Factory Method
 """
 from check_input import get_int_range
 from hero import Hero
+from entity import Entity
 from beg_factory import BeginnerFactory
 from exp_factory import ExpertFactory
 
@@ -54,7 +55,7 @@ def main():
       prompt = "\n".join(menu_lines) + "Enter choice: "
       choice = get_int_range(prompt, 1, len(menu_lines))
       print()
-      # Checks if user quit first
+      # Checks if user quit first, Brian: not needed but cool to have.
       if choice == len(menu_lines):
          print("Thank you for playing.")
          finished = True
@@ -63,8 +64,13 @@ def main():
       selected_monster = monsters[choice - 1]
       # Combat loop
       while selected_monster.hp > 0 and hero.hp > 0:
-         print(f"{hero.name}, HP: {hero.hp}\n"
-               f"{selected_monster.name}, HP: {selected_monster.hp}")
+        #Brian: I used the __str__ method instead.
+         print(hero)
+         print(selected_monster)
+         
+         """print(f"{hero.name}, HP: {hero.hp}\n"
+               f"{selected_monster.name}, HP: {selected_monster.hp}")"""# Brian: could used the entity __str__ method insted.
+
          combat_menu = "1. Sword Attack\n2. Arrow Attack\nEnter choice: "
          action = get_int_range(combat_menu, 1, 2)
          print("")
