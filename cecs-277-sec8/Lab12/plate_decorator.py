@@ -3,7 +3,7 @@ Brian Gutierrez and Vincent Nguyen
 Lab 12
 CECS 277 Section 8
 Fall 2025
-November 11
+November 11, 2025
 
 plate_decorator.py inherits from plate.y
 """
