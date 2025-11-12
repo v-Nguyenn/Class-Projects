@@ -4,6 +4,9 @@ Lab 12
 CECS 277 Section 8
 Fall 2025
 November 11, 2025
+
+small_plate.py which returns a description, area, weight, and count of the small plate
+inheritiing from plate.py
 """
 
 from plate import Plate
