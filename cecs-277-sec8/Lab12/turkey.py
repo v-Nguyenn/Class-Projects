@@ -13,7 +13,7 @@ from plate_decorator import Plate_Decorator
 class Turkey(Plate_Decorator):
    """ A description of turkey, the area minus the food item, weight of the turkey and count"""
    def description(self):
-      return super().description() + "Turkey"
+      return super().description() + " with Turkey"
    
    def area(self):
       """ Returns remaining area after subtracting Turkey"""

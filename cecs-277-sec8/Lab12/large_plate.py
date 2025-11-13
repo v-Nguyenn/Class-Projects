@@ -15,7 +15,7 @@ class Large_Plate(Plate):
    """ Returns the description, area, weight, and count of the large plate. """
    def description(self):
       """ Returns the description of the large plate. """
-      return "Large Flimsy 12 inch paper plate with"
+      return "Large Flimsy 12 inch paper plate"
 
    def area(self):
       """ Returns the large area of the plate"""

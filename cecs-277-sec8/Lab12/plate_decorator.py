@@ -17,13 +17,17 @@ class Plate_Decorator(Plate):
       self._plate = p
       
    def description(self):
-      """ Returns the description of the wrapped plate"""
+      """Returns the description of the wrapped plate"""
       return self._plate.description()
    
    def area(self):
-      """ Returns the area of the wrapped plate """
+      """Returns the area of the wrapped plate """
       return self._plate.area()
    
    def weight(self):
-      """ Returns the weight of the wrapped plate"""
+      """Returns the weight of the wrapped plate"""
       return self._plate.weight()
+   
+   def count(self):
+      """Returns the count of items on the wrapped plate."""
+      return self._plate.count()

@@ -14,7 +14,7 @@ class Potatoes(Plate_Decorator):
    """ Returns a description, area, weight, and count."""
    def description(self):
       """ Returns the superclass's description along with potatoes."""
-      return super().description() + "Potatoes" 
+      return super().description() + " and Potatoes" 
 
    def area(self):
       """ Returns the superclass's area minus the area of potatoes covers."""

@@ -14,7 +14,7 @@ class Green_Beans(Plate_Decorator):
    """ Returns the decription, area, weight, and count of green beans to the superclass."""
    def description(self):
       """ Returns the superclass's description and adds the green beans."""
-      return super().description() + "Green Beans"
+      return super().description() + " and Green Beans"
 
    def area(self):
       """ Returns the superclass's area minus the area of Green Beans."""

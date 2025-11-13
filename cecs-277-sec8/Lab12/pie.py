@@ -14,7 +14,7 @@ class Pie(Plate_Decorator):
    """ Returns the Description, area, weight, and count of pie adding to the superclass"""
    def description(self):
       """ Returns the superclass's description with Pie."""
-      return super().description() + "Pie"
+      return super().description() + " and Pie"
    
    def area(self):
       """ Returns the superclass's area minus the area of the pie."""

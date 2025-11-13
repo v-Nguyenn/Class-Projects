@@ -16,7 +16,7 @@ class Small_Plate(Plate):
    """ Returns the description of a small plate, smaller area, weight, and count """
    def description(self):
       """ Returns the string description of the small plate and what is on it. """
-      return f"Sturdy 10 inch plate with"
+      return f"Sturdy 10 inch plate"
    
    def area(self):
       """ Returns an integer, the small area of the plate which is 78. """
