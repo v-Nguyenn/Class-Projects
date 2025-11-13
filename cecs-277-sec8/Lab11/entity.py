@@ -32,6 +32,7 @@ class Entity(ABC):
       """ Returns a string with the entity's name and hp """
       return f"{self._name}, HP: {self._hp}"
 
+   @abstractmethod # forgot the abstract method.
    def melee_attack(self, enemy):
       " The attack the entity does to another entity "
       pass
