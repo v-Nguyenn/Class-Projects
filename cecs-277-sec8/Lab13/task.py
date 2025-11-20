@@ -1,15 +1,15 @@
 """
 Brian Gutierrez and Vincent Nguyen
-CECS 277 Section 8
 Lab 13
+CECS 277 Section 8
 Fall 2025
 November 19, 2025
 
-task.py  
+task.py defines the Task class for managing individual tasks.
 """
 
 class Task():
-   """ """
+   """A single task with a description, due date, and time."""
    def __init__(self, desc, date, time):
       """Initializes the task class."""
       self._description = desc
