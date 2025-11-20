@@ -5,7 +5,7 @@ CECS 277 Section 8
 Fall 2025
 November 19, 2025
 
-task.py defines the Task class for managing individual tasks.
+task.py defines the Task class for managing individual files.
 """
 
 class Task():

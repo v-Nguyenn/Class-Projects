@@ -27,7 +27,12 @@ class Tasklist():
       # If file is not found then initializes an empty list.
       except FileNotFoundError:
          pass
+      except Exception as e:
+         print(f"Error: {e}")
       self._tasklist.sort()
+
+      self._tasklist.sort()
+      print(f"Loaded {len(self._tasklist)} tasks from file")  # Debug line
 
    def add_task(self, desc, date, time):
       """Constructs a new task, adds it to the list, and then sorts it."""
