@@ -1,7 +1,0 @@
-#BlueJ class context
-comment0.target=ChargeAccValVN
-comment0.text=\r\n\ This\ class\ validates\ if\ a\ number\ exists\ in\ a\ predefined\r\n\ list\ of\ valid\ account\ numbers.\r\n\r\n\ Author\:\ Vincent\ Nguyen\r\n\ Date\:\ 12/08/25\r\n
-comment1.params=number
-comment1.target=boolean\ isValid(int)
-comment1.text=\r\n\ Checks\ if\ a\ given\ number\ is\ valid\ (exists\ in\ the\ validNums\ array).\r\n\r\n\ @param\ number\ The\ number\ to\ validate.\r\n\ @return\ true\ if\ the\ number\ is\ found,\ false\ otherwise.\r\n
-numComments=2

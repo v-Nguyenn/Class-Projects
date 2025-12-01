@@ -1,6 +1,0 @@
-#BlueJ class context
-comment0.target=ContributionVincentNguyen
-comment0.text=\r\n\ Description\r\n\ This\ program\ calculates\ the\ amount\ of\ pay\ that\r\n\ will\ be\ contributed\ to\ a\ retirement\ plan\ if\ 5%,\r\n\ 8%,\ or\ 10\ %\ of\ monthly\ pay\ is\ withheld.\r\n\ ref\:\ pg\ __________\r\n\ @author\ Vincent\ Nguyen\r\n\ @version\ 09/03/24\r\n
-comment1.params=args
-comment1.target=void\ main(java.lang.String[])
-numComments=2

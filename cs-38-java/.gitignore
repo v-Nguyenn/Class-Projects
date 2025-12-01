@@ -1,0 +1,37 @@
+# Compiled Java files
+*.class
+
+# BlueJ metadata (not needed in VS Code)
+*.ctxt
+package.bluej
+*.bluej
+
+# Temp files
+*~
+*.swp
+*.swo
+tempCodeRunnerFile.java
+sources.txt
+
+# Output files
+*.txt
+!README.TXT
+!startToEndVNguyen.txt
+!startToEndYName.txt
+!studentsByVincentNguyen.txt
+!Vincent.txt
+!VNguyen.txt
+!10.22.24.txt
+!1017.txt
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+# Documentation folders (keep them)
+!doc/

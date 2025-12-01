@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.target=ArrayDemoVNguyen
-comment0.text=\r\n\ \ \ This\ program\ shows\ values\ being\ stored\ in\ an\ array's\r\n\ \ \ elements\ and\ displayed.\r\n
-comment1.params=args
-comment1.target=void\ main(java.lang.String[])
-comment2.params=
-comment2.target=void\ demoArrayA()
-numComments=3

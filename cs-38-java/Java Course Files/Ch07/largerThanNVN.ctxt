@@ -1,7 +1,0 @@
-#BlueJ class context
-comment0.target=largerThanNVN
-comment0.text=\r\n\ This\ class\ provides\ a\ method\ to\ display\ numbers\ in\ an\ array\ \r\n\ that\ are\ greater\ than\ a\ given\ value\ n.\r\n\r\n\ Author\:\ Vincent\ Nguyen\r\n\ Date\:\ 12/08/25\r\n
-comment1.params=array\ n
-comment1.target=void\ displayNumLargerthanN(int[],\ int)
-comment1.text=\r\n\ Prints\ all\ numbers\ in\ the\ array\ that\ are\ larger\ than\ n.\r\n\r\n\ @param\ array\ The\ array\ of\ integers\ to\ check.\r\n\ @param\ n\ The\ value\ to\ compare\ against.\r\n
-numComments=2

@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.target=demoVNguyen
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ demoCounterVNguyen\ here.\r\n\ This\ is\ a\ demo\ for\ 11/07\ Thursday\ Class\ notes\ regarding\ \r\n\ Chapter\ 6\ methods\ and\ terms\r\n\r\n\ @author\ Vincent\ Nguyen\r\n\ @version\ 11/07/24\r\n
-comment1.params=
-comment1.target=void\ demoCounter()
-comment2.params=
-comment2.target=void\ demoVoteMachine()
-numComments=3
