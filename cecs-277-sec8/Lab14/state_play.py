@@ -9,7 +9,6 @@ state_play.py defines the StatePlay class for the puppy's playing state behavior
 """
 
 from puppy_state import PuppyState
-from state_asleep import StateAsleep
 
 class StatePlay(PuppyState):
    """"""
@@ -27,6 +26,7 @@ class StatePlay(PuppyState):
 
       Returns a string describing the puppy playing until it falls asleep again after incrementing 
       """ 
+      from state_asleep import StateAsleep
       if puppy.plays == 1:
          puppy.inc_plays()
          return "You throw the ball again and the puppy excitedly chases it."

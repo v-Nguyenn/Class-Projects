@@ -10,7 +10,6 @@ The puppy runs when it hears the food bowl being filled.
 """
 
 from puppy_state import PuppyState
-from state_eat import StateEat
 
 class StateAsleep(PuppyState):
    """"""
@@ -20,6 +19,7 @@ class StateAsleep(PuppyState):
 
       Returns a string describing the puppy waking up from hearing the food bowl.
       """
+      from state_eat import StateEat
       puppy.change_state(StateEat())
       puppy.reset()
       puppy.inc_feeds()

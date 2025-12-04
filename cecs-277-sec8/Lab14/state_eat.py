@@ -9,7 +9,6 @@ state_eat.py the puppy eats until it falls asleep.
 """
 
 from puppy_state import PuppyState
-from state_asleep import StateAsleep
 from state_play import StatePlay
 
 class StateEat(PuppyState):
@@ -22,6 +21,7 @@ class StateEat(PuppyState):
          return "The puppy continues to eat as you add another scoop of kibble to its bowl."
       # Changes the state of the puppy at 2
       elif puppy.feeds == 2:
+         from state_asleep import StateAsleep
          puppy.change_state(StateAsleep())
          puppy.reset()
          return "The puppy continues to eat as you add another scoop of kibble to its bowl.\nThe puppy ate so much it fell asleep!"
