@@ -34,3 +34,5 @@ class StatePlay(PuppyState):
          puppy.change_state(StateAsleep())
          puppy.reset()
          return "You throw the ball again and the puppy excitedly chases it.\nThe puppy played so much it fell asleep!"
+      else:
+         return "Error unexpected play count" # Just in case
