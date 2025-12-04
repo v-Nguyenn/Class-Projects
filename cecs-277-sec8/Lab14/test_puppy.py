@@ -1,5 +1,5 @@
 """
-Test file for Puppy class - shows you how to think about testing.
+Test file for Puppy class - shows you how to think about testing. Made from AI
 
 HOW TO THINK ABOUT TESTS:
 1. What should happen when I create an object? → Test __init__
@@ -11,7 +11,7 @@ HOW TO THINK ABOUT TESTS:
 import unittest
 from puppy_state import PuppyState
 
-# Mock state for testing (we'll create real ones later)
+# Mock state for testing
 class MockState(PuppyState):
     """Fake state just for testing - implements required abstract methods"""
     def feed(self, puppy):
