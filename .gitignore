@@ -2,6 +2,9 @@
 # Ignore all PDFs and docs in these folders
 Notes and Assignments/ 
 Data Structure Documents/
+**/lab_pdfs/ 
+**/assignment_pdfs/
+**/program_pdfs/
 
 # Ignore peer review folder
 cecs-277-sec8/peer_review/
