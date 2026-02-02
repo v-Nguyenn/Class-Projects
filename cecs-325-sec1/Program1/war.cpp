@@ -1,13 +1,6 @@
-/*
- * @file war.cpp
- * @author your name (you@domain.com)
- * @brief 
- * @version 0.1
- * @date 2026-01-28
- * 
- * @copyright Copyright (c) 2026
- * 
- */
+// Author: Vincent Nguyen
+// CECS 325-01 Prog 1
+// Due 02/11/2026
 
 #include <iostream>
 #include "deck.h" // Use double quotes <> is for system library
