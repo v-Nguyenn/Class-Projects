@@ -12,6 +12,7 @@ class Card
    private:
       char rank; // A, 2-9, J, Q, K
       char suit; // H, D, C, S (hearts, diamonds, clubs, spades);
+      
    public:
       Card();           // Default constructor
       Card(char rank, char suit); // Constructor for card, sets suit and rank
