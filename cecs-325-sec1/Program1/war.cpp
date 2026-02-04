@@ -28,11 +28,17 @@ int main()
          Card c2 = mydeck.deal();
          int p1 = c1.compare(c2);
          if (p1 == 1)
+         {
             cout << name1 << " won game " << i + 1 << endl;
+         }
          else if (p1==0)
+         {
             cout << "tie game " << i + 1 << endl;
+         }
          else
+         {
             cout << name1 << " lost game " << i + 1 << endl; 
+         }
       }
 
    return 0
