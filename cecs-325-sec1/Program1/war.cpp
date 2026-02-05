@@ -1,6 +1,12 @@
 // Author: Vincent Nguyen
-// CECS 325-01 Prog 1
+// CECS 325-01 
+// Program 1 - One Card War
 // Due 02/11/2026
+//
+// I certify that this program is my own original work. I did not copy any part
+// of this program from any other source including inappropriate AI use. I did not
+// share this program with anyone. I further certify that I typed each and every line
+// of code in this program.
 
 #include <iostream>
 #include "deck.h" // Use double quotes <> is for system library
@@ -13,9 +19,9 @@ int main()
    Deck mydeck;
    string name1, name2;
    cout << "Enter two player names: ";
-   cout << "First name: "
+   cout << "First name: ";
    cin >> name1;
-   cout << "Second name: "
+   cout << "Second name: ";
    cin >> name2; 
    mydeck.show();
    mydeck.shuffle();
@@ -41,5 +47,5 @@ int main()
          }
       }
 
-   return 0
-}
+   return 0;
+};

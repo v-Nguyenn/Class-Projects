@@ -1,6 +1,12 @@
 // Author: Vincent Nguyen
-// CECS 325-01 Prog 1
+// CECS 325-01 
+// Program 1 - One Card War 
 // Due 02/11/2026
+//
+// I certify that this program is my own original work. I did not copy
+// any part of this program from any other source including AI use. I did 
+// not share this program with anyone. I further certify that I typed each 
+// and every line of code in this program.
 
 #include <iostream>
 #include <card.h>
@@ -20,7 +26,7 @@ Card::Card(char r, char s)
 
 void Card::show()
 {
-   cout  << rank << suit << endl;
+   cout  << rank << suit;
 }
 
 int Card::compare(Card other)
@@ -56,9 +62,33 @@ int Card::compare(Card other)
       myValue = 14;
    }
 
-   
+   // Converts the other card to integer value to compare
+   if (other.rank  >= '2' && other.rank <= '9')
+   {
+      otherValue = other.rank - '0';
+   }
+   else if (other.rank == 'T')
+   {
+      otherValue = 10;
+   }
+   else if (other.rank == 'J')
+   {
+      otherValue = 11;
+   }
+   else if (other.rank == 'Q')
+   {
+      otherValue = 12;
+   }
+   else if (other.rank == 'K')
+   {
+      otherValue = 13;
+   }
+   else if (other.rank == 'A')
+   {
+      otherValue = 14;
+   }
 
-
+   // Compare user's value and other card value
    if (myValue < otherValue)
    {
       return -1;
