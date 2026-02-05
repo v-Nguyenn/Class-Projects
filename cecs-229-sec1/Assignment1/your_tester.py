@@ -1,3 +1,7 @@
+# Vincent Nguyen
+# CECS 229
+# Assignment 1
+
 from pa1 import congruent_to
 
 """
