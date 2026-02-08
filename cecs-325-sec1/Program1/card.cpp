@@ -14,14 +14,14 @@ using namespace std;
 
 Card::Card() // Default Constructor
 {
-   rank = 'A';
-   suit = 'S';
+   rank;
+   suit;
 }
 
 Card::Card(char r, char s)
 {
-   rank = r;
-   suit = s;
+   char rank = r;
+   char suit = s;
 }
 
 void Card::show()
