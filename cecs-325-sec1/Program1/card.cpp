@@ -53,11 +53,11 @@ int Card::compare(Card other)
       }
    }
    // Compare user's value and other card value based on index
-   if (otherRankIndex < otherRankIndex)
+   if (thisRankIndex > otherRankIndex)
    {
       return 1;
    } 
-   else if (otherRankIndex > otherRankIndex)
+   else if (thisRankIndex < otherRankIndex)
    {
       return -1;
    } 
