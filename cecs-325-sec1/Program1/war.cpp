@@ -16,28 +16,38 @@ using namespace std;
 
 int main()
 {
-   Deck mydeck;
+   Deck playDeck;
    string name1, name2;
-   cout << "Enter two player names: ";
+
+   // Get player names from user
+   cout << "Enter two player names: \n";
    cout << "First name: ";
    cin >> name1;
    cout << "Second name: ";
    cin >> name2; 
-   mydeck.show();
-   mydeck.shuffle();
-   mydeck.show();
+
+   // Display the original deck ordered
+   playDeck.show();
+
+   // Display the deck shuffled
+   playDeck.shuffle();
+   playDeck.show();
 
 // Add counter, maybe clean up i + 1
-   for(int i=0; i < 26; i++) // Goes from 0 - 25 which is 26 games
+   for(int i = 0; i < 26; i++) // Goes from 0 - 25 which is 26 games
       {
-         Card c1 = mydeck.deal();
-         Card c2 = mydeck.deal();
-         int p1 = c1.compare(c2);
-         if (p1 == 1)
+
+         Card card1 = playDeck.deal();
+         Card card2 = playDeck.deal();
+
+         int result = card1.compare(card2);
+         if (result == 1)
          {
-            cout << name1 << " won game " << i + 1 << endl;
+            cout << "Game 1\n";
+            cout << "--------\n";
+            cout << name1 << "=>" << i + 1 << endl;
          }
-         else if (p1==0)
+         else if (result == 0)
          {
             cout << "tie game " << i + 1 << endl;
          }
