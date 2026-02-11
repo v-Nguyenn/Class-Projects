@@ -9,8 +9,8 @@
 // typed each and every line of code in this program.
 
 #include <iostream>
-#include <deck.h>
-#include <card.h>
+#include "deck.h"
+#include "card.h"
 #include <cstdlib>
 
 Deck::Deck()
@@ -31,27 +31,39 @@ Deck::Deck()
    }
 }
 
-void Deck::deal()
+Card Deck::deal()
 {
-   // Use random function to pick a random card?
-   // If the currentCard counter is not empty (zero), deal a card
-   if (currentCard != 52)
+   if (currentCard < 52)
    {
-      for (i = 0; i < 52; i++)
-      {
-         cou
-      }
-
+      return cards[currentCard++]; 
    }
+   cout << "No Cards left!" << endl;
+   return Card();
 } 
 
 void Deck::show()
 {
-   int sum(int listOfCards[], int size)
+   for (int i = 0; i < 52; i++)
    {
-      int total = 0;
-      for (int i = 0; i < size; i++)
-         total += listOfCards[i];
-      return total;
+      // Calls the show card function 52 times.
+      cards[i].show();
+      cout << " ";
+      // Every thirteen lines goes to new line
+      if ((i + 1) % 13 == 0)
+      {
+         cout << endl;
+      }
+   }
+}
+
+void Deck::shuffle()
+{
+   srand(time(0)); // Seed random number generator from in class
+   for (int i = 0; i < 52; i++)
+   {
+      int randomIndex = rand() % 52; // limit random numbers to 0 - 51
+      Card temp = cards[i];
+      cards[i] = cards[randomIndex];
+      cards[randomIndex] = temp;
    }
 }
