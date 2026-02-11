@@ -19,8 +19,8 @@ class Deck
    private:
    Card cards[52]; // initialize array
    int currentCard; // To keep track of index
-   char ranks[13] = {'A', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K'}
-   char suits[4] = {'S', 'C', 'D', 'H'}
+   char ranks[13] = {'A', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K'};
+   char suits[4] = {'S', 'C', 'D', 'H'};
 
    public:
       Deck(); // default constructor
