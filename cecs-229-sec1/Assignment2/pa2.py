@@ -4,18 +4,27 @@
 
 
 # ---------------- PROBLEM 1 ---------------- #
-def b_rep(n, b):
-    """ Converts decimal integer n into base b and returns it as a string. The base b must be an integer between 2-36."""
-    digits = []  # stores the digits of the b-representation of n
-    q = n
-    while q != 0:
-        digit = # TODO: update 'digit' to be the remainder of q divided by b
-        if b == 16 and digit > 9:  # TODO: update for other bases > 10
-            hex_dict = {10: 'A', 11: 'B', 12: 'C', 13: 'D', 14: 'E', 15: 'F'} # TODO: update for other bases > 10
-            # TODO: update digit
-        digits.append(digit)
-        q = # TODO: update q to the correct value.
-    return  # TODO: return the string of digits
+def b_rep(decimalNum, base):
+    """ Converts decimal integer decimalNum into base and returns it as a string. The base must be an integer between 2-36."""
+    binaryDigits = []  # stores the digits of the b-representation of n
+    quotient = decimalNum
+    while quotient != 0:
+        digit = quotient % base 
+        if base > 10 and digit > 9:  
+            # Added values to match up to base 36
+            hex_dict = {10: 'A', 11: 'B', 12: 'C', 13: 'D', 14: 'E', 15: 'F', 16: 'G',
+                        17: 'H', 18: 'I', 19: 'J', 20: 'K', 21: 'L', 22: 'M', 23: 'N',
+                        24: 'O', 25: 'P', 26: 'Q', 27: 'R', 28: 'S', 29: 'T', 30: 'U',
+                        31: 'V', 32: 'W', 33: 'X', 34: 'Y', 35: 'Z'}
+            digit = hex_dict[digit]
+        binaryDigits.append(digit)
+        quotient = quotient // base
+    # Reverse then build one string character
+    binaryDigits.reverse() 
+    result = ""
+    for digit in binaryDigits:
+        result += str(digit)
+    return result
 
 
 # ---------------- PROBLEM 2 ---------------- #
