@@ -9,93 +9,50 @@
 // and every line of code in this program.
 
 #include <iostream>
-#include <card.h>
+#include "card.h"
 using namespace std;
 
 Card::Card() // Default Constructor
 {
-   rank;
-   suit;
+   rank = '?';
+   suit = '?';
 }
 
-Card::Card(char r, char s)
+Card::Card(char cardRank, char cardSuit)
 {
-   char rank = r;
-   char suit = s;
+   rank = cardRank;
+   suit = cardSuit;
 }
 
 void Card::show()
 {
-   cout  << rank << suit;
+   cout << rank << suit;
 }
 
 int Card::compare(Card other)
 {
-   int myValue;
-   int otherValue;
-
-   // Convert rank to integer values to compare
-   // Use ASCII arithmetic to make integers
-   if (rank >= '2' && rank <= '9')
+   int thisRankIndex = -1;
+   int otherRankIndex = -1;
+   char rankOrder[] = {'A', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K'};
+   for (int i = 0; i < sizeof(rankOrder); i++)
    {
-      myValue = rank - '0'; // 50 - 48 = 2 (ASCII values)
-   } 
-   else if (rank == 'T')
-   {
-      myValue = 10;
+      if (rank == rankOrder[i])
+      {
+         thisRankIndex = i;
+      }
+      if (other.rank == rankOrder[i]) 
+      {
+         otherRankIndex = i;
+      }
    }
-   else if (rank == 'J')
-   {
-      myValue = 11;
-   }
-   else if (rank == 'Q')
-   {
-      myValue = 12;
-   }
-   else if (rank == 'K')
-   {
-      myValue = 13;
-   }
-   // Did explicit as opposed to else in case of invalid rank character 
-   else if (rank == 'A')
-   {
-      myValue = 14;
-   }
-
-   // Converts the other card to integer value to compare
-   if (other.rank  >= '2' && other.rank <= '9')
-   {
-      otherValue = other.rank - '0';
-   }
-   else if (other.rank == 'T')
-   {
-      otherValue = 10;
-   }
-   else if (other.rank == 'J')
-   {
-      otherValue = 11;
-   }
-   else if (other.rank == 'Q')
-   {
-      otherValue = 12;
-   }
-   else if (other.rank == 'K')
-   {
-      otherValue = 13;
-   }
-   else if (other.rank == 'A')
-   {
-      otherValue = 14;
-   }
-
-   // Compare user's value and other card value
-   if (myValue < otherValue)
-   {
-      return -1;
-   } 
-   else if (myValue > otherValue)
+   // Compare user's value and other card value based on index
+   if (otherRankIndex < otherRankIndex)
    {
       return 1;
+   } 
+   else if (otherRankIndex > otherRankIndex)
+   {
+      return -1;
    } 
    return 0; // tie
 }
