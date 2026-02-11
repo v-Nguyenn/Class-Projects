@@ -26,7 +26,14 @@ Card::Card(char cardRank, char cardSuit)
 
 void Card::show()
 {
-   cout << rank << suit;
+   if (rank == 'T')
+   {
+      cout << "10" << suit;
+   }
+   else
+   {
+      cout << rank << suit;
+   }
 }
 
 int Card::compare(Card other)
