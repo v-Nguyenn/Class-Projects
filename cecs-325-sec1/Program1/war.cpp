@@ -16,6 +16,9 @@ using namespace std;
 
 int main()
 {
+   int scoreTies = 0;
+   int name1wins = 0;
+   int name2wins = 0;
    Deck playDeck;
    string name1, name2;
 
@@ -24,11 +27,15 @@ int main()
    cin >> name1;
    cout << "Enter the name of the second player: ";
    cin >> name2; 
+   cout << endl;
 
    // Display the original deck ordered
+   cout << "Original Deck\n";
    playDeck.show();
+   cout << endl;
 
    // Display the deck shuffled
+   cout << "Shuffled Deck\n";
    playDeck.shuffle();
    playDeck.show();
 
@@ -39,30 +46,41 @@ int main()
          Card card1 = playDeck.deal();
          Card card2 = playDeck.deal();
 
+         cout << endl;
          cout << "Game" << i + 1 << endl;
          cout << "------" << endl;
-         cout << "      " << name1 << " => " << ;
-         cout << "      " << name2 << " => " << card2;
+         cout << "      " << name1 << " => ";
+         card1.show();
+         cout << endl;
+         cout << "      " << name2 << " => ";
+         card2.show();
+         cout << endl;
 
          int result = card1.compare(card2);
          if (result == 1)
          {
-            cout << name1 << " ==> Winner" << endl;
+            cout << name1 << " ==> Winner " << endl;
+            name1wins += 1;
          }
          else if (result == 0)
          {
-            cout << "tie game " << i + 1 << endl;
+            cout << "Tie game " << endl;
+            scoreTies += 1;
          }
          else
          {
-            cout << name1 << " lost game " << i + 1 << endl; 
+            cout << name2 << " ==> Winner " << endl; 
+            name2wins += 1;
          }
       }
 
+      // Print final stat board
+      cout << endl;
+      cout << "------ Final Stats -------\n";
+      cout << "   " << name1 << " vs. " << name2 << endl;
+      cout << "Wins:   " << name1wins << "     " << name2wins << endl;
+      cout << "Losses: " << name2wins << "      " << name1wins << endl;
+      cout << "Ties:   " << scoreTies << "      " << scoreTies << endl;
+
    return 0;
 };
-
-// Class Feb 11
-// We went over Program 2
-// - 
-// We went over vectors
