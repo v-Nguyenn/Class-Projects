@@ -12,11 +12,11 @@ def b_rep(decimalNum, base):
         digit = quotient % base 
         if base > 10 and digit > 9:  
             # Added values to match up to base 36
-            hex_dict = {10: 'A', 11: 'B', 12: 'C', 13: 'D', 14: 'E', 15: 'F', 16: 'G',
+            hexDict = {10: 'A', 11: 'B', 12: 'C', 13: 'D', 14: 'E', 15: 'F', 16: 'G',
                         17: 'H', 18: 'I', 19: 'J', 20: 'K', 21: 'L', 22: 'M', 23: 'N',
                         24: 'O', 25: 'P', 26: 'Q', 27: 'R', 28: 'S', 29: 'T', 30: 'U',
                         31: 'V', 32: 'W', 33: 'X', 34: 'Y', 35: 'Z'}
-            digit = hex_dict[digit]
+            digit = hexDict[digit]
         binaryDigits.append(digit)
         quotient = quotient // base
     # Reverse then build one string character
@@ -46,14 +46,15 @@ def binary_add(a, b):
     result = ""
     carry = 0
     for i in reversed(range(len(a))):
-        a_i = int(a[i])
+        a_i = int(a[i]) # a_i is a single bit at the position i
         b_i = int(b[i])
 
-        # TODO: update result += ....
-        # TODO: update carry =
+        # str to concantenate result
+        result = str((a_i + b_i + carry) % 2) + result # Compute bit of the result 
+        carry = (a_i + b_i + carry) // 2 # Compute bit of any carry 
     if carry == 1:
-        result += # TODO: update 'result' to the correct value."
-    return  # TODO: return the appropriate string
+        result = '1' + result 
+    return result
 
 
 # ---------------- PROBLEM 3 ---------------- #
@@ -68,11 +69,11 @@ def binary_mul(a, b):
     i = 0  # index of the current bit of string 'a' beginning at 0, right-to-left
     for bit in reversed(a):
         if bit == '1':
-            partial_products.append() #TODO: append the appropriate partial product
+            partial_products.append(b + '0' * i) 
         i += 1
 
     result = '0'
     while len(partial_products) > 0:
-        result = binary_add() #TODO: input the correct arguments
+        result = binary_add(result, partial_products[0])
         del partial_products[0]
-    return  # TODO: return the appropriate result
+    return  result 
