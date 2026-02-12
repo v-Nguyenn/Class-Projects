@@ -1,0 +1,18 @@
+Program 0 - 
+
+Program 1 - CECS 325, one card war
+- Understand how to create classes
+- Learn how to use arrays in C++
+- Learn how to use header files and .cpp file as separate files
+- Learn about how preprocessor directives, #include libraries, and "using namespace std"
+- Learn how to protect header files by using #infndef, #define, #endif
+- Introduce the rand() function for shuffling cards
+- Get a random number within a range of numbers 
+
+
+How to run program. Navigate to folder
+//compile
+g++ war.cpp card.cpp deck.cpp -o war 
+
+//execute
+./ war.cpp
