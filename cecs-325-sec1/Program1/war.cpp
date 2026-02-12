@@ -47,12 +47,12 @@ int main()
          Card card2 = playDeck.deal();
 
          cout << endl;
-         cout << "Game" << i + 1 << endl;
+         cout << "Game " << i + 1 << endl;
          cout << "------" << endl;
          cout << "      " << name1 << " => ";
          card1.show();
          cout << endl;
-         cout << "      " << name2 << " => ";
+         cout << "      " << name2 << "  => ";
          card2.show();
          cout << endl;
 
@@ -79,7 +79,7 @@ int main()
       cout << "------ Final Stats -------\n";
       cout << "   " << name1 << " vs. " << name2 << endl;
       cout << "Wins:   " << name1wins << "     " << name2wins << endl;
-      cout << "Losses: " << name2wins << "      " << name1wins << endl;
+      cout << "Losses: " << name2wins << "     " << name1wins << endl;
       cout << "Ties:   " << scoreTies << "      " << scoreTies << endl;
 
    return 0;
