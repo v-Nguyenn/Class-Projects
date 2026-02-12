@@ -20,10 +20,9 @@ int main()
    string name1, name2;
 
    // Get player names from user
-   cout << "Enter two player names: \n";
-   cout << "First name: ";
+   cout << "Enter the name of the first player: ";
    cin >> name1;
-   cout << "Second name: ";
+   cout << "Enter the name of the second player: ";
    cin >> name2; 
 
    // Display the original deck ordered
@@ -40,12 +39,15 @@ int main()
          Card card1 = playDeck.deal();
          Card card2 = playDeck.deal();
 
+         cout << "Game" << i + 1 << endl;
+         cout << "------" << endl;
+         cout << "      " << name1 << " => " << ;
+         cout << "      " << name2 << " => " << card2;
+
          int result = card1.compare(card2);
          if (result == 1)
          {
-            cout << "Game 1\n";
-            cout << "--------\n";
-            cout << name1 << "=>" << i + 1 << endl;
+            cout << name1 << " ==> Winner" << endl;
          }
          else if (result == 0)
          {
@@ -59,3 +61,8 @@ int main()
 
    return 0;
 };
+
+// Class Feb 11
+// We went over Program 2
+// - 
+// We went over vectors
