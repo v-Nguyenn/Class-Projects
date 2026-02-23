@@ -1,6 +1,8 @@
-Program 0 - 
+Program 0 - CECS 325
+- Learn how to use basic vim commands
+- Learn how to use basic linux commands
 
-Program 1 - CECS 325, one card war
+Program 1 - CECS 325, One Card War Learning Objectives
 - Understand how to create classes
 - Learn how to use arrays in C++
 - Learn how to use header files and .cpp file as separate files
@@ -16,3 +18,13 @@ g++ war.cpp card.cpp deck.cpp -o war
 
 //execute
 ./ war.cpp
+
+Program 2 - CECS 325, One Card War with Vectors Learning Objectives
+- Understand how to create classes
+- Learn how to use vectors and arrays in C++
+- Learn about preprocessor directives, #include libraries, and "using namespace std"
+- Include classes in main program
+- Introduce the rand() & srand() function for shuffling cards
+- Get a random number within a range of numbers
+- Throw, try/catch exception handling
+- Create and use structs
