@@ -83,4 +83,4 @@ int main()
       cout << "Ties:   " << scoreTies << "      " << scoreTies << endl;
 
    return 0;
-};
+}
