@@ -2,11 +2,14 @@
 # CECS 325-0
 # Program 3 - Sorting Contest
 
-# This script is provided from class instructions
+# I certify that this program is part of my original work. 
+# This script is provided from class instructions. I further certify
+# that I typed each and every line of code in this program.
 
 # This file is called sortrace.sh
 # It must have execute privilege set to run
 # run it as a background task like this: (see the 2 lines below)
+
 #----------------------------------------------------------------------------------------------
 $ rm sortrace.log # start with fresh log file
 $ sortrace.sh >> sortrace.log & # this may take an hour
