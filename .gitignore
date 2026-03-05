@@ -1,5 +1,7 @@
 # Ignore all .txt files in closestPointPair/pointData
 cecs-328/closestPointPair/pointData/*.txt
+cecs-328/strassens/Algorithm/matrixData/*.txt
+
 # --- IGNORE ---
 # Ignore all PDFs and docs in these folders
 Notes and Assignments/ 
