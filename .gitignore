@@ -35,3 +35,13 @@ venv/
 # Ignore system files
 .DS_Store
 Thumbs.db
+
+# Ignore generated data and output files
+numbers.dat
+mysort.out
+systemsort.out
+sortrace.log
+
+# Ignore Linux executables in Program 3
+cecs-325-sec1/Program3/generate
+cecs-325-sec1/Program3/mysort
