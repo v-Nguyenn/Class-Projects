@@ -1,0 +1,15 @@
+Learning Objectives for CECS 229
+
+Assignment 1:
+- Understand and apply the concept of congruence in modular arithmetic
+- Use algorithms to find all integers congruent to given value modulo m within a specified range.
+
+Assignment 2:
+- Convert numbers between decimal and other bases(up to 36)
+- Do binary addition and multiplication in python
+
+Assignment 3:
+- Use the Sieve of Eratosthenes to generate prime numbers within a range
+- Implement the Euclidean Algorithm to compute GCD of two integers.
+
+Assignment 4:
