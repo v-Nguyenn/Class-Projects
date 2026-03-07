@@ -1,1 +1,0 @@
-# Run the python programs by running the main program in each lab.

@@ -1,4 +1,14 @@
 Learning Objectives for CECS 229
+Course Objectives:
+1. Understand basic number theoretic concepts and perform simple number theoretic operations
+2. Apply Chinese Remainder Theorem
+3. Apply number theoretic operations in simple building blocks of public-key cryptography
+4. Understand basic concepts in fields, vectors, and vector spaces, matrices, basis, and dimensions
+5. Perform basic computations on vectors and matrices
+6. Compute vector space bases, ranks, and null spaces of matrices.
+7. Solve basic linear algebraic equations and understand their properties with emphasis on matrix transformation to an echelon form.
+8. Understand basic concepts of inner product, orthogonalization, eigenvalue, eigenvectors, singular value decomposition and their properties.
+
 
 Assignment 1:
 - Understand and apply the concept of congruence in modular arithmetic
@@ -13,3 +23,7 @@ Assignment 3:
 - Implement the Euclidean Algorithm to compute GCD of two integers.
 
 Assignment 4:
+- Solve linear congruence and compute the inverse of value a under modulus m.
+
+
+Assignment 5:
