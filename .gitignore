@@ -49,3 +49,6 @@ sortrace.log
 # Ignore Linux executables in Program 3
 cecs-325-sec1/Program3/generate
 cecs-325-sec1/Program3/mysort
+
+# Ignore doc
+docs/repo-refactor-plan.md
