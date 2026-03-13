@@ -1,6 +1,17 @@
-// Author: Vincent Nguyen
-// CECS 328
-// Due 02/24/2026
+/*
+ * Author: Vincent Nguyen
+ * CECS 328
+ * Due 02/24/2026
+ * Instructions
+ * Each of these files is a set of points in two-dimensional space. For each file, 
+ * determine the distance between the closest two points in the set (using standard Euclidean distance).
+ * 
+ * The first few can theoretically be done by hand, but you will probably want to write code 
+ * for the later questions. Each answer should be given rounded to three decimal digits.
+ * 
+ * For example, for the input {{3.46204, 6.64694}, {0.634868, 3.93809}, 
+ * {6.65893, 7.41089}, {0.286643, 7.59746}, {8.77236, 4.80401}} would result in the answer 3.287.
+*/
 
 #include <fstream> // Read files
 #include <vector> // Vectors to dynamically store the points

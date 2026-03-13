@@ -1,9 +1,23 @@
-// Author: Vincent Nguyen
-// CECS 328
-// Due 03/05/2026
-
-// Multiplies two matrices using standard multiplication and Strassen's algorithm.
-// The goal is to keep this readable for students while still being robust.
+/*
+ * Author: Vincent Nguyen
+ * CECS 328
+ * Due 03/05/2026
+ * 
+ * Instructions
+ * Using Strassen's algorithm and the standard matrix multiplication algorithm, multiply the following two matrices 
+ * and determine the sum of the entries in the result. Note that if you are clever about how you implement 
+ * Strassen's algorithm and don't copy submatrices, there will be a point at which your computer will switch from 
+ * preferring the standard algorithm to Strassen's.
+ * 
+ * For example, assume that the "a" file holds {{-3, 8, 10}, {-3, -9, 8}, {-8, -8, -3}} - corresponding to the matrix 
+ *  - and the "b" file holds {{-4, 6, -2}, {-10, 6, 7}, {-4, -2, 5}} - corresponding to the matrix 
+ * - then the final answer would be 
+ * (which corresponds to the sum of the entries in the matrix 
+ * ).
+ * 
+ * Multiplies two matrices using standard multiplication and Strassen's algorithm.
+ * The goal is to keep this readable for students while still being robust.
+*/
 
 #include <iostream>
 #include <fstream>
