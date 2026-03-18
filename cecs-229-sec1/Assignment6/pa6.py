@@ -52,5 +52,7 @@ def rotate(S, tau):
     :returns: set type; a set consisting of points in S rotated by tau radians
     """
     # TODO: Implement this function. 
-    
-    return None # TODO: Return correct result
+    result = set()
+    for z in S:
+        result.add(z * (math.cos(tau) + 1j * math.sin(tau)))
+    return result # TODO: Return correct result
