@@ -1,3 +1,5 @@
+# This is code provided by Professor Shannon Cleary to run the test.
+
 import random
 import math
 import pa5
