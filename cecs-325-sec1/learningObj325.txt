@@ -1,3 +1,8 @@
+How to run Programs (for any computer)
+Prerequisites:
+- A C++ compiler that supports g++
+- A shell that can run sortrace.sh (Git Bash, MSYS2, WSL, Linux, or macOS Terminal)
+
 Program 0 - CECS 325
 - Learn how to use basic vim commands
 - Learn how to use basic linux commands
@@ -12,7 +17,7 @@ Program 1 - CECS 325, One Card War Learning Objectives
 - Get a random number within a range of numbers 
 
 
-How to run program. Navigate to folder
+How to run program 2. Navigate to folder
 //compile
 g++ war.cpp card.cpp deck.cpp -o war 
 
@@ -29,6 +34,11 @@ Program 2 - CECS 325, One Card War with Vectors Learning Objectives
 - Throw, try/catch exception handling
 - Create and use structs
 
+How to run program 2. Navigate to folder
+//compile
+g++ war.cpp
+
+//execute
 
 Program 3 - Generate numbers and sort with generate.cpp and sort.cpp
 - Demonstrate the ability to implement and compare sorting algorithms
@@ -38,3 +48,24 @@ Program 3 - Generate numbers and sort with generate.cpp and sort.cpp
 - Use Linux shell commands and scripts to automate sorting, timing
 - Comparing the performance of a custom sort with a system's built in sort
 - Practice good software engineering habits, including code documentation
+
+How to run program 3. 
+
+Navigate to folder
+cd Program3
+
+Compile both programs:
+g++ -o generate generate.cpp
+g++ -o mysort mysort.cpp
+
+Run the script and save output to a log file:
+rm -f sortrace.log
+./sortrace.sh >> sortrace.log 2>&1
+
+Check the results:
+tail -n 40 sortrace.log
+
+Notes:
+- The script creates numbers.dat, sorts with system sort and mysort, and checks that mysort.out is sorted.
+- Large input sizes may take a long time due to bubble sort being used and compared against system sort.
+
