@@ -1,7 +1,7 @@
-# Name: Vincent Nguyen 
-# Assignment #2
-# Spring 2026
-
+# Author: Vincent Nguyen
+# Due: February 11, 2026
+# I filled out the TODO portions of the code 
+# Function, doc string, and problem setup is done by professor Shannon Cleary
 
 # ---------------- PROBLEM 1 ---------------- #
 def b_rep(decimalNum, base):

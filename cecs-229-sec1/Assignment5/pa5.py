@@ -1,6 +1,7 @@
-# Name: Vincent Nguyen
-# Spring 2026
-# Assignment 5 - Cryptography
+# Author: Vincent Nguyen
+# Due: March 9, 2026
+# I filled out the TODO portions of the code 
+# Function, doc string, and problem setup is done by professor Shannon Cleary
 
 import math
 
@@ -19,6 +20,7 @@ def char_to_num(c):
         :param c: char - the character to convert.
         :returns: a string representation of the number 00-25.
     """
+    # TODO
     val = ord(c) - 65
     if val < 10:
         return "0" + str(val)

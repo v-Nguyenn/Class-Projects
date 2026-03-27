@@ -1,3 +1,8 @@
+# Author: Vincent Nguyen
+# Due: March 17. 2026
+# I filled out the TODO portions of the code 
+# Function, doc string, and problem setup is done by professor Shannon Cleary 
+
 import math
 
 """ ----------------- PROBLEM 1 ----------------- """

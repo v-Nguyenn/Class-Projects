@@ -1,6 +1,7 @@
-# Name: Vincent Nguyen
-# Assignment #3
-# Spring 2026
+# Author: Vincent Nguyen
+# Due: February 18, 2026
+# I filled out the TODO portions of the code 
+# Function, doc string, and problem setup is done by professor Shannon Cleary
 
 import math
 
