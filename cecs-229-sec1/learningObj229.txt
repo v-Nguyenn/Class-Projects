@@ -27,3 +27,17 @@ Assignment 4:
 
 
 Assignment 5:
+- Implement classical shift cipher encryption and decryption in Python.
+- Apply RSA fundamentals: block encoding, modular exponentiation, and decryption using modular inverse.
+
+Assignment 6:
+- Model geometric transformations in the complex plane using translation, scaling, and rotation.
+- Use complex arithmetic and trigonometric form to transform sets of points.
+
+Assignment 7:
+- Implement a vector class with Euclidean norm, vector addition/subtraction, dot product, and scalar multiplication.
+- Practice operator overloading to support vector arithmetic with error handling for dimension mismatch.
+
+Assignment 8:
+- Implement a matrix class with row/column/entry getters and setters.
+- Perform matrix operations including addition, subtraction, scalar multiplication, and matrix multiplication.
