@@ -21,10 +21,14 @@ using namespace std;
 long long totalSwaps = 0;
 mutex swapMutex; // Threads share the same mutex object.
 
-// Bubble sort worker function for each thread
+// Bubble sort based on geeksforgeeks but adjusted for dynamic array
 // Sorts only the section [startIndex, endIndex)
 void bubble(int* arr, int startIndex, int endIndex, int processNum, long long& localSwaps)
 {
+   // processNum the thread number 1 through 16
+   // localSwaps passed by reference so this thread can track its own swap count
+   //            after the function returns, main can read how many swaps this thread made
+   
    localSwaps = 0;
    int sectionSize = endIndex - startIndex;
 
@@ -149,7 +153,8 @@ void mergeArrays(int* arr, int start1, int end1, int start2, int end2)
 
 int main(int argc, char* argv[])
 {
-   if (argc != 3)
+   // If sorted with 3 arguments 1000000, with -test is 10k 
+   if (argc < 3 || argc > 4)
    {
       cout << "Usage: " << argv[0] << " inputfile outputfile -test" << endl;
       return 1;
