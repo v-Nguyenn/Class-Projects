@@ -23,11 +23,13 @@ echo Generating 1000000 random numbers
 sleep 1
 ./generate 1000000 -1000000 1000000 # generate.cpp that we wrote
 sleep 1 
+
 echo Starting system sort
 sleep 1
 { time sort -n numbers.dat > systemsort.out; } 2>> sortrace.log # For Windows
 # { time sort -n numbers.dat > systemsort.out; } 2>&1 >> sortrace.log # change for Mac
 sleep 1
+
 echo Starting my sort
 sleep 1
 { time ./mysort numbers.dat mysort.out; } 2>> sortrace.log # For Windows
