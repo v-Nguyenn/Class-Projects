@@ -30,11 +30,17 @@ void generate(int count, int min, int max)
 // argc is number of command-line arguments and argv is an array of argument values 
 int main(int argc, char* argv[])
 {
+   if (argc != 4) // argc includes program name, so 3 args is actually 4
+   {
+      cout << "Usage: " << argv[0] << " COUNT MIN MAX" << endl;
+      return 1;
+   }
+
    srand(time(0)); // Seed for the random number generator
    // Convert arguments to ints
    int count = stoi(argv[1]); // stoi converts string to int
    int min = stoi(argv[2]);
    int max = stoi(argv[3]);
    generate(count, min, max);
-   cout << "Generated " << count << "numbers. "; 
+   cout << "Generated " << count << " numbers. " << endl; 
 }
