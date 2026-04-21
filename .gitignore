@@ -3,7 +3,6 @@ cecs-328/closestPointPair/pointData/*.txt
 cecs-328/strassensAlgorithm/matrixData/*.txt
 cecs-328/knapsackProblem/knapsackData/*.txt
 
-# --- IGNORE ---
 # Ignore all PDFs and docs in these folders
 Notes and Assignments/ 
 Data Structure Documents/
@@ -56,3 +55,4 @@ docs/course-folder-standard.md
 docs/repo-refactor-plan.md
 cecs-325-sec1/program4/generate
 cecs-325-sec1/program4/mysort
+cecs-325-sec1/program5/goldrabbits
