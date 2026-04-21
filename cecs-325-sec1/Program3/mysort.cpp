@@ -44,7 +44,7 @@ vector<int> readNumbers(const string& filename)
    // Handle error just in case
    if(!infile)
    {
-      cout << "Error: Could not open input file '" << filename << "'." << endl;
+      cout << "Error: Could not open input file. " << filename << "'." << endl;
       exit(1);
    }
 
@@ -78,7 +78,7 @@ void writeNumbers(const string& filename, const vector<int>& numbers)
 int main(int argc, char* argv[])
 {
    // Check for the correct number of command-line arguments
-   if (argc != 3)
+   if (argc < 3)
    {
       cout << "Usage: " << argv[0] << " inputfile outputfile" << endl;
       return 1;
