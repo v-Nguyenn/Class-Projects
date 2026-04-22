@@ -12,7 +12,7 @@
 using namespace std;
 #include <map>
 #include <string>
-#include <cstdlib>
+#include <sstream>
 // Overflowed at fibo 23 
 //#define INTEGER short 
 
@@ -25,6 +25,7 @@ using namespace std;
 INTEGER goldRabbits(INTEGER n)
 {
    // Static map keeps the previously computed Fibonacci values
+   // Key = month n, value = fibo(n)
    static map<INTEGER, INTEGER> fibo = 
    {
       {0, 1},
@@ -45,15 +46,18 @@ INTEGER goldRabbits(INTEGER n)
 
    if (n < 0)
    {
+      // Any negative value except -1 is invalid input for Fibonacci.
       throw string("negative n is invalid");
    }
 
+   // If we already computed fibo(n), return it right away (memoization).
    fiboIt = fibo.find(n);
    if (fiboIt != fibo.end())
    {
       return fiboIt->second;
    }
 
+   // First Fibonacci index that cannot fit in this INTEGER type.
    INTEGER overflowAt;
    if (sizeof(INTEGER) == sizeof(short))
    {
@@ -74,28 +78,11 @@ INTEGER goldRabbits(INTEGER n)
       throw string("overflow error at fib(") + to_string(static_cast<long long>(overflowAt)) + ")";
    }
 
+   // Recursive definition with memoization support from the map.
    INTEGER a = goldRabbits(n - 1);
    INTEGER b = goldRabbits(n - 2);
 
-   INTEGER maxValue;
-   if (sizeof(INTEGER) == sizeof(short))
-   {
-      maxValue = 32767;
-   }
-   else if (sizeof(INTEGER) == sizeof(int))
-   {
-      maxValue = 2147483647;
-   }
-   else
-   {
-      maxValue = static_cast<INTEGER>(9223372036854775807LL);
-   }
-
-   if (a > maxValue - b)
-   {
-      throw string("overflow error at fib(") + to_string(static_cast<long long>(n)) + ")";
-   }
-
+   // Save newly computed value so future calls are fast.
    fibo[n] = a + b;
 
    return fibo[n];
@@ -103,51 +90,37 @@ INTEGER goldRabbits(INTEGER n)
 
 int main(int argc, char* argv[])
 {
+   // Process every command-line argument one by one.
    for (int i = 1; i < argc; i++)
    {
-      char* end = nullptr;
-      long long value = strtoll(argv[i], &end, 10);
+      // Parse directly into INTEGER. This also fails on out-of-range values.
+      stringstream convert(argv[i]);
+      INTEGER n;
+      char extra;
 
-      long long minValue;
-      long long maxValue;
-      if (sizeof(INTEGER) == sizeof(short))
+      if (!(convert >> n) || (convert >> extra))
       {
-         minValue = -32768;
-         maxValue = 32767;
-      }
-      else if (sizeof(INTEGER) == sizeof(int))
-      {
-         minValue = -2147483648LL;
-         maxValue = 2147483647LL;
-      }
-      else
-      {
-         minValue = -9223372036854775807LL - 1;
-         maxValue = 9223372036854775807LL;
-      }
-
-      if (*argv[i] == '\0' || *end != '\0' ||
-         value < minValue || value > maxValue)
-      {
+         // Non-numeric strings or out-of-range values are reported and skipped.
          cout << argv[i] << " is not an integer" << endl;
          continue;
       }
 
-      INTEGER n = static_cast<INTEGER>(value);
-
       if (n == -1)
       {
+         // print the current fibo map.
          goldRabbits(n);
          continue;
       }
 
       try
       {
+         // Compute first, then print. If overflow happens, catch block handles it.
          INTEGER result = goldRabbits(n);
          cout << "fibo(" << n << "): " << result << endl;
       }
       catch (const string& msg)
       {
+         // Keep going to next argument even after an overflow/input error.
          cout << "fibo(" << n << "): " << msg << endl;
       }
    }
