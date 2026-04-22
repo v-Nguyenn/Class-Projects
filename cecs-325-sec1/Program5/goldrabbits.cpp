@@ -9,22 +9,22 @@
 // of code in this program.
 
 #include <iostream>
-#include <time.h>
-#include <iomanip>
 using namespace std;
 #include <map>
+#include <string>
+#include <cstdlib>
 // Overflowed at fibo 23 
 //#define INTEGER short 
 
 // Overflowed at fibo 46
-// #define INTEGER int
+#define INTEGER int
 
-#define INTEGER long long
+// #define INTEGER long long
 
 // This is from Prog 5 Gold rabbits doc
 INTEGER goldRabbits(INTEGER n)
 {
-   // Create the map and initialize it for the first two values
+   // Static map keeps the previously computed Fibonacci values
    static map<INTEGER, INTEGER> fibo = 
    {
       {0, 1},
@@ -32,36 +32,127 @@ INTEGER goldRabbits(INTEGER n)
    };
    map<INTEGER, INTEGER>:: iterator fiboIt; 
 
-   // If parameter is -1 function prints the contents of the map.
+   // -1 means print the map contents 
    if (n == -1)
    {
-      cout << "Displaying fibo map: \n";
-      if (fibo.size() == 0)
+      for (fiboIt = fibo.begin(); fiboIt != fibo.end(); fiboIt++)
       {
-         cout << "The fibonacci sequence is empty\n";
+         cout << fiboIt->first << ":" << fiboIt->second << endl;
+      }
+      cout << "end of Fibo map" << endl << endl;
+      return 0;
+   }
+
+   if (n < 0)
+   {
+      throw string("negative n is invalid");
+   }
+
+   fiboIt = fibo.find(n);
+   if (fiboIt != fibo.end())
+   {
+      return fiboIt->second;
+   }
+
+   INTEGER overflowAt;
+   if (sizeof(INTEGER) == sizeof(short))
+   {
+      overflowAt = 23;
+   }
+   else if (sizeof(INTEGER) == sizeof(int))
+   {
+      overflowAt = 46;
+   }
+   else
+   {
+      overflowAt = 92;
+   }
+
+   // Prevent deep recursion for very large n and report where overflow begins.
+   if (n >= overflowAt)
+   {
+      throw string("overflow error at fib(") + to_string(static_cast<long long>(overflowAt)) + ")";
+   }
+
+   INTEGER a = goldRabbits(n - 1);
+   INTEGER b = goldRabbits(n - 2);
+
+   INTEGER maxValue;
+   if (sizeof(INTEGER) == sizeof(short))
+   {
+      maxValue = 32767;
+   }
+   else if (sizeof(INTEGER) == sizeof(int))
+   {
+      maxValue = 2147483647;
+   }
+   else
+   {
+      maxValue = static_cast<INTEGER>(9223372036854775807LL);
+   }
+
+   if (a > maxValue - b)
+   {
+      throw string("overflow error at fib(") + to_string(static_cast<long long>(n)) + ")";
+   }
+
+   fibo[n] = a + b;
+
+   return fibo[n];
+}
+
+int main(int argc, char* argv[])
+{
+   for (int i = 1; i < argc; i++)
+   {
+      char* end = nullptr;
+      long long value = strtoll(argv[i], &end, 10);
+
+      long long minValue;
+      long long maxValue;
+      if (sizeof(INTEGER) == sizeof(short))
+      {
+         minValue = -32768;
+         maxValue = 32767;
+      }
+      else if (sizeof(INTEGER) == sizeof(int))
+      {
+         minValue = -2147483648LL;
+         maxValue = 2147483647LL;
       }
       else
       {
-         for (fiboIt = fibo.begin(); fiboIt != fibo.end(); fiboIt++)
-         {
-            cout << fiboIt -> first << ":" << fiboIt -> second << endl;
-         }
+         minValue = -9223372036854775807LL - 1;
+         maxValue = 9223372036854775807LL;
       }
-      return 0;
-   }
-}
 
-int main()
-{
-   int const months = 47; // 120 months
-   int start = time(0); // number of seconds since Jan 1, 1970
-   for (int i = 0; i < months; i++)
-   {
-      int current = time(0);
-      cout << setw(5) << current-start<< ":";
-      cout << " goldRabbits(" << setw(2)<<i<<") = ";
-      cout << setw(11) << goldRabbits(i) << endl; // call to gold rabbits
+      if (*argv[i] == '\0' || *end != '\0' ||
+         value < minValue || value > maxValue)
+      {
+         cout << argv[i] << " is not an integer" << endl;
+         continue;
+      }
+
+      INTEGER n = static_cast<INTEGER>(value);
+
+      if (n == -1)
+      {
+         goldRabbits(n);
+         continue;
+      }
+
+      try
+      {
+         INTEGER result = goldRabbits(n);
+         cout << "fibo(" << n << "): " << result << endl;
+      }
+      catch (const string& msg)
+      {
+         cout << "fibo(" << n << "): " << msg << endl;
+      }
    }
+
+   return 0;
 }
 
 // Output for int data type and command line to send output to log
