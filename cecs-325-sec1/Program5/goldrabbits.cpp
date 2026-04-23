@@ -12,7 +12,6 @@
 using namespace std;
 #include <map>
 #include <string>
-#include <sstream>
 // Overflowed at fibo 23 
 //#define INTEGER short 
 
@@ -21,21 +20,20 @@ using namespace std;
 
 // #define INTEGER long long
 
-// This is from Prog 5 Gold rabbits doc
+// Calculates the given Fiboonacci number using a map to store the past values
 INTEGER goldRabbits(INTEGER n)
 {
    // Static map keeps the previously computed Fibonacci values
    // Key = month n, value = fibo(n)
    static map<INTEGER, INTEGER> fibo = 
    {
-      {0, 1},
-      {1, 1}
+      {0, 1}, {1, 1} // base case where sequence in fibo is 0 or 1, they both are 1
    };
-   map<INTEGER, INTEGER>:: iterator fiboIt; 
 
    // -1 means print the map contents 
    if (n == -1)
    {
+      map<INTEGER, INTEGER>:: iterator fiboIt;
       for (fiboIt = fibo.begin(); fiboIt != fibo.end(); fiboIt++)
       {
          cout << fiboIt->first << ":" << fiboIt->second << endl;
@@ -44,84 +42,84 @@ INTEGER goldRabbits(INTEGER n)
       return 0;
    }
 
-   if (n < 0)
+   // Check if we already computed fibo(n), return it right away. 
+   // find() returns end() if the key is not in the map.
+   if (fibo.find(n) != fibo.end())
    {
-      // Any negative value except -1 is invalid input for Fibonacci.
-      throw string("negative n is invalid");
+      return fibo[n];
    }
 
-   // If we already computed fibo(n), return it right away (memoization).
-   fiboIt = fibo.find(n);
-   if (fiboIt != fibo.end())
-   {
-      return fiboIt->second;
-   }
-
-   // First Fibonacci index that cannot fit in this INTEGER type.
-   INTEGER overflowAt;
+   // Note: checking (result < 0) after recursion didnt work for fibo(9000)
+   // Pick overflow based on the INTEGER size we #define at the top.
+   INTEGER overflowLimit;
    if (sizeof(INTEGER) == sizeof(short))
-   {
-      overflowAt = 23;
-   }
+      overflowLimit = 23;
    else if (sizeof(INTEGER) == sizeof(int))
-   {
-      overflowAt = 46;
-   }
+      overflowLimit = 46;
    else
+      overflowLimit = 92; // long long
+
+   if (n >= overflowLimit)
    {
-      overflowAt = 92;
+      throw string("overflow error at fib(") + to_string(overflowLimit) + ")";
    }
 
-   // Prevent deep recursion for very large n and report where overflow begins.
-   if (n >= overflowAt)
-   {
-      throw string("overflow error at fib(") + to_string(static_cast<long long>(overflowAt)) + ")";
-   }
-
-   // Recursive definition with memoization support from the map.
-   INTEGER a = goldRabbits(n - 1);
-   INTEGER b = goldRabbits(n - 2);
-
-   // Save newly computed value so future calls are fast.
-   fibo[n] = a + b;
-
-   return fibo[n];
+   // Use recursion for Fibonacci value
+   INTEGER result = goldRabbits(n - 1) + goldRabbits(n - 2);
+   
+   // We save the result in the map so we can use later
+   fibo[n] = result;
+   return result;
 }
 
 int main(int argc, char* argv[])
 {
-   // Process every command-line argument one by one.
+   // Go through every command line argument one by one.
    for (int i = 1; i < argc; i++)
    {
-      // Parse directly into INTEGER. This also fails on out-of-range values.
-      stringstream convert(argv[i]);
-      INTEGER n;
-      char extra;
+      // convert argv[i] into string to use
+      string arg = argv[i];
 
-      if (!(convert >> n) || (convert >> extra))
+      // Check if it is a valid integer
+      bool isNumber = true;
+      
+      // if first character is a minus sign we skip it bc it is a char, but we
+      // are checking if isdigit so it will return false if it sees -
+      int start = 0; 
+      if (arg[0] == '-')
       {
-         // Non-numeric strings or out-of-range values are reported and skipped.
-         cout << argv[i] << " is not an integer" << endl;
+         start = 1;
+      }
+
+      // Now we check every character to make sure it is a number
+      for (int j = start; j < arg.length(); j++)
+      {
+         if(!isdigit(arg[j])) 
+         {
+            isNumber = false; 
+            break;
+         }
+      }
+
+      if (!isNumber)
+      {
+         cout << arg << " is not an integer" << endl;
          continue;
       }
 
-      if (n == -1)
-      {
-         // print the current fibo map.
-         goldRabbits(n);
-         continue;
-      }
+      // convert the string back to integer bc we know its a integer new.
+      INTEGER n = stoi(arg);
 
+      // Try Fibonacci and if not catch the overflow 
       try
       {
-         // Compute first, then print. If overflow happens, catch block handles it.
          INTEGER result = goldRabbits(n);
-         cout << "fibo(" << n << "): " << result << endl;
+         if (n != -1)
+            cout << "fibo(" << n << "):" << result << endl;
       }
-      catch (const string& msg)
+      catch(string msg) 
       {
-         // Keep going to next argument even after an overflow/input error.
-         cout << "fibo(" << n << "): " << msg << endl;
+         cout << "fibo(" << n << "):" << msg << endl;
       }
    }
 
