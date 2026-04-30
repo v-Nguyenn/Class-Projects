@@ -28,7 +28,7 @@ def determinant(A):
     Raises a ValueError if the matrix is not square.
     """
     m, n = A.dim()
-    if m != n #TODO: check to see if matrix A is a square matrix
+    if m != n: #TODO: check to see if matrix A is a square matrix
         raise ValueError(f"Determinant is not defined for Matrix with dimension {m}x{n}.  Matrix must be square.")
 
     if n == 1:
