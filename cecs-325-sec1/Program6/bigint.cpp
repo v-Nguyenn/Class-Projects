@@ -40,4 +40,28 @@ class BigInt
          BigInt fact(); // Factorial of current number
          friend BigInt operator+ (int, BigInt);
          friend ostream& operator<<(ostream&, const BigInt&);
+
 };
+
+// Copied From Program 6 doc. 
+int main()
+{
+      int space = 10;
+      cout << "\a\nTestUnit:\n" << flush;
+      cout << "User Name:" << flush;
+      system("whoami");
+      system("date");
+      BigInt n1(25);
+      BigInt s1("25");
+      BigInt n2(1234);
+      BigInt s2("1234");
+      BigInt n3(n2);
+      BigInt X(3000);
+      BigInt Y(50);
+      BigInt Z1(123);
+      BigInt Z2("9893452745657");
+      BigInt Z3(X.fibo());
+      BigInt imax = INT_MAX;
+      BigInt big("9223372036854775807");
+
+}
