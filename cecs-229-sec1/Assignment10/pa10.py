@@ -39,6 +39,7 @@ def determinant(A):
         
     else: 
         #TODO: calculate and return the determinant if n >= 3
+        d = 0
         for j in range(1, n + 1):
             cofactor = ((-1) ** (1 + j)) * A.get_element(1, j) * determinant(submatrix(A, 1, j))
             d += cofactor
