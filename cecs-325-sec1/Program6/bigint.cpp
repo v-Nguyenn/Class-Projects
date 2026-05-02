@@ -64,4 +64,34 @@ int main()
       BigInt imax = INT_MAX;
       BigInt big("9223372036854775807");
 
+      cout << "n1(int)     :" << setw(space) << n1 << endl;
+      cout << "s1(str)     :" << setw(space) << s1 << endl;
+      cout << "n2(int)     :" << setw(space) << n2 << endl;
+      cout << "s2(str)     :" << setw(space) << s2 << endl;
+      cout << "n3(n2)      :" << setw(space) << n3 << endl;
+      cout << "X.fibo(1234):" << setw(space) << X.fibo() << endl;
+      cout << "Y.fact(50)  :" << setw(space) << Y.fact() << endl;
+      cout << "imax        :" << setw(space) << imax << endl;
+      cout << "big         :" << setw(space) << big << endl;
+      cout << "big.print() : "; big.print(); cout << endl;
+      
+      cout << n2 << "/" << n1 << " = " << n2/n1 <<" rem " <<n2%n1<<endl;
+      cout << "fibo("<<X<<") = " <<X.fibo() << endl;
+      cout << "fact("<<Y<<") = " <<Y.fact() << endl;
+      
+      cout << "10 + n1 = " << BigInt(10) + n1 << endl;
+      cout << "n1 + 10 = " << n1 + BigInt(10) << endl;
+      
+      cout << "(n1 == s1)? --> " <<((n1==s1)?"true":"false")<<endl;
+      cout << "n1++ = ? --> before:"<<n1++<<" after:" << n1 << endl;
+      cout << "++s1 = ? --> before:"<<++s1<<" after:" << s1 << endl;
+
+      cout << "s2 * big = ? --> "<< s2 * big << endl;
+      cout << "big * s2 = ? --> "<< big * s2 << endl;
+
+      cout << endl;
+      system("date");
+
+      return 0;
+
 }
