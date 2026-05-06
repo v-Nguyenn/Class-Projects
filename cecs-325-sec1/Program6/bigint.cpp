@@ -40,7 +40,6 @@ class BigInt
          BigInt fact(); // Factorial of current number
          friend BigInt operator+ (int, BigInt);
          friend ostream& operator<<(ostream&, const BigInt&);
-
 };
 
 // Copied From Program 6 doc. 
@@ -93,5 +92,4 @@ int main()
       system("date");
 
       return 0;
-
 }
