@@ -1,0 +1,28 @@
+
+TestUnit:
+User Name:vince
+The current date is: Wed 05/06/2026 
+Enter the new date: (mm-dd-yy) 
+n1(int)     :        25
+s1(str)     :        25
+n2(int)     :      1234
+s2(str)     :      1234
+n3(n2)      :      1234
+X.fibo(1234):4.106158e626
+Y.fact(50)  :3.041409e64
+imax        :2147483647
+big         :9.223372e18
+big.print() : 9223372036854775807
+1234/25 = 49 rem 9
+fibo(3000) = 4.106158e626
+fact(50) = 3.041409e64
+10 + n1 = 35
+n1 + 10 = 35
+(n1 == s1)? --> true
+n1++ = ? --> before:25 after:26
+++s1 = ? --> before:26 after:26
+s2 * big = ? --> 1.138164e22
+big * s2 = ? --> 1.138164e22
+
+The current date is: Wed 05/06/2026 
+Enter the new date: (mm-dd-yy) 
