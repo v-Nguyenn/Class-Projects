@@ -11,12 +11,18 @@ This repository contains coursework organized by class. The goal is to keep scho
 
 ## Current Course Folders
 
+- `cecs-342-sec5` (Principles of Programming Languages)
+
 ### Classes taken at California State University, Long Beach
 
 - `cecs-229-sec1/` (Discrete Structures with Computing Applications 2)
 - `cecs-277-sec8/` (Object Oriented Programming)
-- `cecs-325-sec1/` ( )
+- `cecs-325-sec1/` (Systems Programmings)
 - `cecs-328/` (Algorithms)
+
+- `` ()
+- `` ()
+- `` ()
 
 ### CLasses taken at Irvine Valley College
 
@@ -24,49 +30,10 @@ This repository contains coursework organized by class. The goal is to keep scho
 - `cs-38-java/`
 - `cs-41-data-structures/`
 
-## How To Run Programs
-
-### Python
-
-From a course assignment or lab folder:
-
-```powershell
-py main.py
-```
-
-If there is no `main.py`, run the specific file:
-
-```powershell
-py lab3.py
-```
-
-### C++
-
-Compile then run:
-
-```powershell
-g++ Arrays.cpp -o Arrays.exe
-.\Arrays.exe
-```
-
-### Java
-
-Compile then run:
-
-```powershell
-javac Main.java
-java Main
-```
-
 ## Standardization Docs
 
 - Folder conventions: `docs/course-folder-standard.md`
 - Phased migration plan: `docs/repo-refactor-plan.md` (gitignore)
-
-## Notes
-
-- Some older files from CS-10 and CS-41 are missing due to a laptop replacement (Fall 2021).
-- Refactor is intentionally non-destructive: existing coursework paths remain valid.
 
 ## Notes
 
