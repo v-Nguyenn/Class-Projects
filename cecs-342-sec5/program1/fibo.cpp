@@ -10,14 +10,13 @@
 
 #include <iostream>
 #include <chrono> 
+#include <iomanip>
 using namespace std;
 using namespace std::chrono;
 
-// Fibo function from Prog 1 pdf
-// Changed fibo function to contain long long instead of int
+// Recursively computes nth Fibonacci Sequence with a growth rate of O(2^n) 
 long long fibo(int n) 
 {
-   // Growth rate with recursion is O(2^n)
    if (n == 1 || n == 0)
       return 1;
    else
@@ -26,29 +25,26 @@ long long fibo(int n)
 
 int main()
 {
-   // Prints 50 Fibonacci numbers and uses chrono library to keep track of times
-   int num = 30;
+   // Prints Fibonacci numbers and uses chrono library to keep track of times
+   int num = 50;
 
    for(int i = 1; i <= num; i++)
    {
       // Measure start time of function
-      // We use steady_clock over high_resolution_clock because hrc depends on the 
-      // system and may not be as consistent with steady_clock. system_clock uses 
-      // the real-world calendar and can be jump depending on synchronization of time.
       auto start = steady_clock::now(); 
 
       // Call function after starting timer
-      int result = fibo(num);
+      long long result = fibo(i);
 
       // auto determines return type automatically
-      // Measure its end time
       auto end = steady_clock::now();
 
       // We subtract the end and start to find overall time it took to finish.
-      auto elapsed = duration_cast<milliseconds>(end - start); 
+      auto elapsed = duration<double>(end - start); 
 
 
-      cout << i << result << "Time elapsed: " << elapsed.count() << endl;
+      cout << i << ": " << result << " Time: "
+      << fixed << setprecision(4) << elapsed.count() << " seconds" << endl;
    }  
    return 0;
 }
