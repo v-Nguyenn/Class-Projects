@@ -15,7 +15,7 @@ using namespace std;
 using namespace std::chrono;
 
 // Recursively computes nth Fibonacci Sequence with a growth rate of O(2^n) 
-long long fibo(int n) 
+long long fibo(int n) // long long can safely hold 18 digits. Int 9 digits
 {
    if (n == 1 || n == 0)
       return 1;
@@ -30,21 +30,19 @@ int main()
 
    for(int i = 1; i <= num; i++)
    {
-      // Measure start time of function
-      auto start = steady_clock::now(); 
+      // auto determines return type automatically
+      auto startTime = steady_clock::now(); 
 
       // Call function after starting timer
       long long result = fibo(i);
 
-      // auto determines return type automatically
-      auto end = steady_clock::now();
+      auto endTime = steady_clock::now();
 
       // We subtract the end and start to find overall time it took to finish.
-      auto elapsed = duration<double>(end - start); 
+      auto elapsedTime = duration<double>(endTime - startTime); 
 
-
-      cout << i << ": " << result << " Time: "
-      << fixed << setprecision(4) << elapsed.count() << " seconds" << endl;
+      cout << i << ": " << result << " Time: " // fixed for decimal seconds
+      << fixed << setprecision(4) << elapsedTime.count() << " seconds" << endl;
    }  
    return 0;
 }
