@@ -43,7 +43,7 @@ int main()
 
 
       cout << i << ": " << result << "  Time: "
-      << fixed << setprecision(4) << elapsed.count() << " seconds" << endl;
+      << fixed << setprecision(4) << elapsedTime.count() << " seconds" << endl;
    }  
    return 0;
 }
