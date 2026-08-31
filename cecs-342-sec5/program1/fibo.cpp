@@ -41,8 +41,9 @@ int main()
       // We subtract the end and start to find overall time it took to finish.
       auto elapsedTime = duration<double>(endTime - startTime); 
 
-      cout << i << ": " << result << "  Time: " // fixed for decimal seconds
-      << fixed << setprecision(4) << elapsedTime.count() << " seconds" << endl;
+
+      cout << i << ": " << result << "  Time: "
+      << fixed << setprecision(4) << elapsed.count() << " seconds" << endl;
    }  
    return 0;
 }
