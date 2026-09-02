@@ -19,7 +19,7 @@ def fibo(n):
 
 def main():
    """ Measures the execution time for Fibonacci Sequence. """
-   num = 40
+   num = 50
    for i in range (1, num + 1):
       # Measure start time 
       startTime = time.perf_counter()
