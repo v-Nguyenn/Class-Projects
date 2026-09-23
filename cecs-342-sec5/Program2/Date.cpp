@@ -21,26 +21,29 @@ using namespace std;
 class Date
 {
    private:
-   int *dptr;
+   int *datePtr;
+   static int count;
 
    public:
-   // Default constructor to set the date to Jan 1, 1970(Unix Epoch time) 
+   // Default constructor (Set the date to Jan 1, 1970 (Unix Epoch time)) 
    Date()
    {
-      dptr = new int[3];
-      dptr[0] = 1;
-      dptr[1] = 1;
-      dptr[2] = 1970;
+      datePtr = new int[3];
+      datePtr[0] = 1;
+      datePtr[1] = 1;
+      datePtr[2] = 1970;
+      count++;
    }
 
-   // Overloaded constructor to set the date to the desired values.
-   // Falls back to Default construtor if not set. 
-   Date(int Month, int Day, int Year)
+   // Overloaded constructor (Set the date for valid arguments are provided).
+   // Falls back to Default construtor if not set using : Date() 
+   Date(int Month, int Day, int Year) : Date()
    {
-      dptr = new int[3];
-      dptr[0] = Month;
-      dptr[1] = Day;
-      dptr[2] = Year;
+      datePtr = new int[3];
+      datePtr[0] = Month;
+      datePtr[1] = Day;
+      datePtr[2] = Year;
+      count++;
    }
 
    // Overloaded constructor to Julian date based on Unix Epoch time
@@ -54,4 +57,31 @@ class Date
          (Month - 2 - (Month - 14) / 12 * 12) / 12 - 3 * 
          ((Year + 4900 + (Month - 14) / 12) / 100 / 4);
    }
+
+   // Destructor (de-allocate any memory assigned in constructor)
+   // C++ provides one but would not affect our count
+   ~Date()
+   {
+      delete [] datePtr;
+      count--;
+   }
+
+   // Returns the month in integer form 
+   int getMonth()
+   {
+      return datePtr[0];
+   }
+
+   //
+   int getDay()
+   {
+      return datePtr[1];
+   }
+   
+   int getYear()
+   {
+      return datePtr[2];
+   }
+
+
 };
