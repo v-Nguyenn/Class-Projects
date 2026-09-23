@@ -32,7 +32,7 @@ int main()
 	cout << "If you turn this assignment in on "<<dtemp<<" then is will be late.\n";
 	cout << "It is due on "<<--dtemp<<" so don't be late.\n";
 	cout << "One week from due date is "<<duedate+7<<endl;
-    cout << "One week from due date is "<<7+duedate<<endl;
+   cout << "One week from due date is "<<7+duedate<<endl;
 	cout << "One week earlier from due date is "<<duedate-7<<endl;
 
 	cout << "The EPOCH date is "<<epoch<<" : ";
