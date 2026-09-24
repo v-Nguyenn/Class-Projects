@@ -1,6 +1,6 @@
 //    Name: Vincent Nguyen
 //    Class: CECS 342 Section 5
-//    Project Name: Prog 1 - Fibo Race
+//    Project Name: Prog 2 - Overloading Operators in C++
 //    Due Date: 09/24/2026
 //
 //    I certify that this program is my own original work. I did not
@@ -23,7 +23,7 @@ class Date
 {
    private:
    int *datePtr;
-   static int count;
+   static int objectCount;
 
    public:
    // Default constructor (Set the date to Jan 1, 1970 (Unix Epoch time)) 
@@ -33,18 +33,27 @@ class Date
       datePtr[0] = 1;
       datePtr[1] = 1;
       datePtr[2] = 1970;
-      count++;
+      objectCount++;
    }
 
    // Overloaded constructor (Set the date for valid arguments are provided).
    // Falls back to Default construtor if not set using : Date() 
    Date(int month, int day, int year) : Date()
    {
-      datePtr = new int[3];
       datePtr[0] = month;
       datePtr[1] = day;
       datePtr[2] = year;
-      count++;
+   }
+
+   // Copy constructor to copy values from datePtr without modifying the original
+   Date(const Date &copyFrom) // const protects the object by not modifying og
+   {
+      // new object's slot [i] = orginal's object slot[i]
+      datePtr = new int[3];
+      datePtr[0] = copyFrom.datePtr[0];
+      datePtr[1] = copyFrom.datePtr[1];
+      datePtr[2] = copyFrom.datePtr[2];
+      objectCount++;
    }
 
    // Overloaded constructor to create a date using the Julian
@@ -64,25 +73,23 @@ class Date
       L = month / 11;
       month = month + 2 - 12 * L;
       year = 100 * (N - 49) + year + L;
+      datePtr = new int[3];
       datePtr[0] = month;
       datePtr[1] = day;
       datePtr[2] = year;
-      count++;
+      objectCount++;
    }
 
    // Function to convert Gregorian to Julian date 
    int gregToJulian(int month, int day, int year)
    {
-      int month, day, year;
-      month = getMonth();
-      day = getDay();
-      year = getYear();
       // Based on Fliegel and van Flandern computer algorithm for converting
       // between Julian dates in Fortran. Changed variables to be readable.
+      int sum = year + 4900 + (month - 14) / 12;
       int julianDate = day - 32075 + 1461 * 
          (year + 4800 + (month - 14) / 12) / 4 + 367 *
          (month - 2 - (month - 14) / 12 * 12) / 12 - 3 * 
-         ((year + 4900 + ((month - 14) / 12) / 100) / 4);
+         (sum / 100) / 4;
       return julianDate;
    }
 
@@ -91,7 +98,7 @@ class Date
    ~Date()
    {
       delete [] datePtr;
-      count--;
+      objectCount--;
    }
 
    // Returns the month in integer form 
@@ -149,9 +156,80 @@ class Date
       return "Not a valid day. ";
    }
 
+   // Overload = assignment operator
+   Date & operator= (int day)
+   {
+
+   }
+
+   // Overload + operator
+   Date operator+ (int day)
+   {
+
+   }
+
+   // Use the friend operator to access the private members of the named friend class
+   friend Date operator+ (int day, const Date& date)
+   {
+
+   }
+
+   // Overload += operator
+   Date& operator+=(int day)
+   {
+
+   }
+
+   Date& operator-=(int day)
+   {
+
+   }
+
+
+   // if we do Date it calls the copy constructor for every comparison.
+   // We use Date&
+   Date operator> (const Date&) 
+   {
+      // return bool;
+   }
 };
 
+// Initializes and defines objectCount because static int objectCount does not create memory
+// only tells the compiler it exists by declaring it.
+int Date::objectCount = 0;
+
 int main(){
-   cout << "My own test" << endl;
-   Date d; // Test default constructor
-}
+   cout << "My own test: " << endl;
+   cout << "--- Testing default Constructor..." << endl;
+   Date d1; // default constructor
+   cout << "d1: results expected: 1/1/1970" << endl;
+   cout << "d1: actual: ";
+   cout << d1.getMonth() << "/" << d1.getDay() << "/" << d1.getYear() << endl;
+   cout << "Day of the week expected: Thursday" << endl;
+   cout << "Day of the week actual: " << d1.getDayName() << "\n" << endl;
+
+   cout << "--- Testing overloaded constructor..." << endl;
+   Date d2(10, 27, 2010); // overloaded constructor from pdf
+   cout << "Day of the week expected: Wednesday" << endl;
+   cout << "Day of the week actual: " << d2.getDayName() << "\n" << endl;
+
+   // Overloaded constructor to test if it goes back to default constructor
+   cout << "--- Testing out of bounds overloaded constructor..." << endl;
+   Date d3(13, 31, 2081);
+   cout << "d3: results expected: 1/1/1970" << endl; // return to default
+   cout << "d3: actual: ";
+   cout << d3.getMonth() << "/" << d3.getDay() << "/" << d3.getYear() << endl;
+   cout << "Day of the week expected: Thursday" << endl;
+   cout << "Day of the week actual: " << d3.getDayName() << "\n" << endl;
+
+   cout << "--- Testing copy constructor..." << endl;
+   Date d4(d1); // Tests copy constructor
+   cout << d4.getMonth() << "/" << d4.getDay() << "/" << d4.getYear() << endl;
+   cout << "Day of the week expected: Thursday" << endl;
+   cout << "Day of the week actual: " << d4.getDayName() << "\n" << endl;
+
+   // Check Gregorian to Julian function
+   d1.gregToJulian(1, 1, 1970);
+   cout << "Gregorian To Julian member function: ";
+   cout << d1.gregToJulian(1, 1, 1970);
+};
