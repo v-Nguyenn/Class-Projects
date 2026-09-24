@@ -8,6 +8,11 @@
 //    inappropriate AI use. I did not share this program with anyone.
 //    I further certify that I typed each and every line of code in this program.
 
+// Figuring out Leap Year ?
+// if year div by 4, leapyear
+// if year div by 100 not leap year
+// if year div by 400 is leap 
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -16,60 +21,7 @@ class Date
 {
    private:
    int *datePtr;
-   static int objectCount; // Static means it belongs to class as a whole 
-
-   bool isLeapYear(int year)
-   {
-      if (year % 400 == 0) // if divisible by 400, leapyear.
-      {
-         return true;
-      }
-      else if (year % 100 == 0) // if divisible by 100, not a leapyear..
-      {
-         return false;
-      }
-      else if (year % 4 == 0) // if divisible by 4, leap year.
-      {
-         return true;
-      } 
-      else 
-      {
-         return false;
-      }
-   }
-
-   // Checks if the the month, day, and year are valid.
-   bool isValidDate(int month, int day, int year)
-   {  
-      int daysInMonth[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-      
-
-      if (month > 12 || month < 1) // if month out of range.
-      {
-         return false;
-      }
-      // Gives us the maximum number of days in the month based on which number was given.
-      int lastDayOfMonth = daysInMonth[month - 1]; 
-
-      if (month == 2 && isLeapYear(year)) // checks february for leap year
-      {
-         // To account for leap year which would be 29 instead of 28.
-         lastDayOfMonth += 1; 
-      }
-      
-      if (day > lastDayOfMonth || day < 1) // if day out of range.
-      {
-         return false;
-      }
-      else if (year < 0)
-      {
-         return false;
-      } 
-      else 
-      {
-         return true;
-      }
-   }
+   static int objectCount;
 
    public:
    // Default constructor (Set the date to Jan 1, 1970 (Unix Epoch time)) 
@@ -86,7 +38,7 @@ class Date
    // Falls back to Default construtor if not set using : Date() 
    Date(int month, int day, int year) : Date()
    {
-      if(isValidDate(month, day, year))
+      if(isValid(month, day, year))
       {
       datePtr[0] = month;
       datePtr[1] = day;
@@ -130,7 +82,7 @@ class Date
    }
 
    // Function to convert Gregorian to Julian date 
-   static int gregToJulian(int month, int day, int year) 
+   int gregToJulian(int month, int day, int year)
    {
       // Based on Fliegel and van Flandern computer algorithm for converting
       // between Julian dates in Fortran. Changed variables to be readable.
@@ -142,13 +94,6 @@ class Date
       return julianDate;
    }
 
-   // I kept my original implementation and adjusted to match master gold's 
-   // since julian() is the name called it wraps gregToJulian for the date.
-   int julian() const // so call function doesn't change object.
-   {
-      return gregToJulian(getMonth(), getDay(), getYear());
-   }
-
    // Destructor (de-allocate any memory assigned in constructor)
    // C++ provides one but would not affect our count
    ~Date()
@@ -158,19 +103,19 @@ class Date
    }
 
    // Returns the month in integer form 
-   int getMonth() const 
+   int getMonth()
    {
       return datePtr[0];
    }
 
    // Returns the day in integer form
-   int getDay() const
+   int getDay()
    {
       return datePtr[1];
    }
    
    // Returns the year in integer form
-   int getYear() const
+   int getYear()
    {
       return datePtr[2];
    }
@@ -200,7 +145,7 @@ class Date
       int m = getMonth();
       int d = getDay();
       int y = getYear();
-      int julianNumber = julian(); // Grab Julian date 
+      int julianNumber = gregToJulian(m, d, y); // Grab Julian date
       int day = julianNumber % 7 + 1; // Mod julian number to get day of week 1 - 7  
       if (day == 1) return "Monday";
       else if (day == 2) return "Tuesday";
@@ -212,12 +157,12 @@ class Date
       return "Not a valid day. ";
    }
 
-
-   // Date = Date: returns the copied date in the object.
+   // Overload = assignment operator
+   // Copies Date into an existing Date
    Date & operator= (const Date &copyFrom) 
    {
-      // Check for self-assignment because d1 = d1 would read itself,
-      // free its own array, and then assign garbage, and copies garbage. 
+      // Check for self-assignment because d1 = d1 would read itself
+      // free its own array and then assign garbage and copies garbage. 
       if(this != &copyFrom) // this keyword is the address of left object (d1, etc)
       {                     // &copyFrom is the address of the right object
          delete[] datePtr;
@@ -226,79 +171,130 @@ class Date
          datePtr[1] = copyFrom.datePtr[1];
          datePtr[2] = copyFrom.datePtr[2];
       }
-      return *this; // * makes the address into an object, returns the object.
+      return *this; // * makes the address in to an object returns the object.
    }
 
-   // Date += int: moves this day forward day days and returns itself.
-   // Date constructor uses julian() to convert current date into julian number
-   // day is an int which adds to that julian number and then calls the 
-   // Date(int julianDate) to covert that number back into M/D/Y
-   Date & operator+= (int day)
+   // Overload + operator
+   Date operator+ (int day)
    {
-      // *this uses the assignment operator to copy it into the current array
-      return *this = Date(julian() + day); 
+
    }
 
-   // Date -= int; moves this day backward day days and returns itself.
-   Date & operator-= (int day)
-   {
-      return *this = Date(julian() - day); 
-   }
-
-   // Date + int: returns a new Date day after.
-   Date operator+ (int day) const
-   {
-      // Copy  constructor creating a local date named result. ex. Date D2(D1)
-      // This is a deep copy and does not change the original values.
-      Date newDate = *this; // Copies the current object to the local object.
-      return newDate += day;
-   }
-
-   // int + date: returns a new date object that has been added by the amount of days.
    // Use the friend operator to access the private members of the named friend class
-   // This is because int is on the left, so it can't be a member of Date.
    friend Date operator+ (int day, const Date &date)
    {
-      Date newDate = date; // copy the parameter
-      return newDate += day;
+
    }
 
-   // Date - int: return a new Date day earlier.
-   Date operator - (int day) const
+   // Overload += operator
+   Date & operator+=(int day)
    {
-      Date newDate = *this;
-      return newDate -= day;
+
    }
 
-   // Date - Date: days in between two dates returns the integer difference.
-   friend int operator- (const Date &date, const Date &other)
+   Date & operator-=(int day)
    {
-      // Subtract julian values to receive the integer difference or days inbetween.
-      int difference = (date.julian()) - (other.julian());
-      return difference;
+
    }
 
-   // Date > Date: returns bool whether one date is ahead of a date.
-   friend bool operator> (const Date &date, const Date &other)
+
+   // if we do Date it calls the copy constructor for every comparison.
+   // We use Date&
+   Date operator> (const Date&) 
    {
-      // We compare julian dates and return when left side is larger. 
-      // If is not needed because this is already true or false.
-      return date.julian() > other.julian();
+      // return bool;
+   }
+   bool isLeapYear(int year)
+   {
+      if (year % 400 == 0) // if divisible by 400, leapyear.
+      {
+         return true;
+      }
+      else if (year % 100 == 0) // if divisible by 100, not a leapyear..
+      {
+         return false;
+      }
+      else if (year % 4 == 0) // if divisible by 4, leap year.
+      {
+         return true;
+      } 
+      else 
+      {
+         return false;
+      }
    }
 
-   // Date < Date: returns bool whether one date is behind a date.
-   friend bool operator< (const Date &date, const Date &other)
-   {
-      return date.julian() < other.julian();
+   // Checks if the the month, day, and year are valid.
+   bool isValid(int month, int day, int year)
+   {  
+      int daysInMonth[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+      
+
+      if (month > 12 || month < 1) // if month out of range.
+      {
+         return false;
+      }
+      // Gives us the maximum number of days in the month based on which number was given.
+      int lastDayOfMonth = daysInMonth[month - 1]; 
+
+      if (month == 2 && isLeapYear(year)) // checks february for leap year
+      {
+         // To account for leap year which would be 29 instead of 28.
+         lastDayOfMonth += 1; 
+      }
+      
+      if (day > lastDayOfMonth || day < 1) // if day out of range.
+      {
+         return false;
+      }
+      else if (year < 0)
+      {
+         return false;
+      } 
+      else 
+      {
+         return true;
+      }
    }
 
-   // Date == Date: returns bool if both dates are equal.
-   friend bool operator< (const Date &date, const Date &other)
-   {
-      return date.julian() == other.julian(); 
-   }
 };
 
 // Initializes and defines objectCount because static int objectCount does not create memory
 // only tells the compiler it exists by declaring it.
 int Date::objectCount = 0;
+
+int main(){
+   cout << "My own test: " << endl;
+   cout << "--- Testing default Constructor..." << endl;
+   Date d1; // default constructor
+   cout << "d1: results expected: 1/1/1970" << endl;
+   cout << "d1: actual: ";
+   cout << d1.getMonth() << "/" << d1.getDay() << "/" << d1.getYear() << endl;
+   cout << "Day of the week expected: Thursday" << endl;
+   cout << "Day of the week actual: " << d1.getDayName() << "\n" << endl;
+
+   cout << "--- Testing overloaded constructor..." << endl;
+   Date d2(10, 27, 2010); // overloaded constructor from pdf
+   cout << "Day of the week expected: Wednesday" << endl;
+   cout << "Day of the week actual: " << d2.getDayName() << "\n" << endl;
+
+   // Overloaded constructor to test if it goes back to default constructor
+   cout << "--- Testing out of bounds overloaded constructor with validity..." << endl;
+   Date d3(13, 31, 2081);
+   cout << "d3: results expected: 1/1/1970" << endl; // return to default
+   cout << "d3: actual: ";
+   cout << d3.getMonth() << "/" << d3.getDay() << "/" << d3.getYear() << endl;
+   cout << "Day of the week expected: Thursday" << endl;
+   cout << "Day of the week actual: " << d3.getDayName() << "\n" << endl;
+
+   cout << "--- Testing copy constructor..." << endl;
+   Date d4(d1); // Tests copy constructor
+   cout << d4.getMonth() << "/" << d4.getDay() << "/" << d4.getYear() << endl;
+   cout << "Day of the week expected: Thursday" << endl;
+   cout << "Day of the week actual: " << d4.getDayName() << "\n" << endl;
+
+   // Check Gregorian to Julian function
+   d1.gregToJulian(1, 1, 1970);
+   cout << "Gregorian To Julian member function: ";
+   cout << d1.gregToJulian(1, 1, 1970);
+};
