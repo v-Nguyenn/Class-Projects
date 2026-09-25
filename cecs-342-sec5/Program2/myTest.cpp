@@ -8,10 +8,7 @@
 //    inappropriate AI use. I did not share this program with anyone.
 //    I further certify that I typed each and every line of code in this program.
 
-// Figuring out Leap Year ?
-// if year div by 4, leapyear
-// if year div by 100 not leap year
-// if year div by 400 is leap 
+// This implementation is not completed but uses the test cases I wrote at the bottom.
 
 #include <iostream>
 #include <string>
