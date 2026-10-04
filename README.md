@@ -35,6 +35,10 @@ This repository contains coursework organized by class. The goal is to keep scho
 - Folder conventions: `docs/course-folder-standard.md`
 - Phased migration plan: `docs/repo-refactor-plan.md` (gitignore)
 
+## How I Use AI
+
+I write my own code and use Claude as a tutor: asking for feedback, why certain syntax and best practices work the way they do, and walking through my approach as I iterate.
+
 ## Notes
 
 - Some older files from CS-10 and CS-41 are missing due to a laptop replacement (Fall 2021).
