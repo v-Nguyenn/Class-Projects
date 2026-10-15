@@ -12,16 +12,33 @@ each and every line of code in this program.
 
 Run Program:
 - (Tested on SWI-Prolog 10.0.2)
+
 - swipl tree.pl
-- ?- (Run query) 
+- ?- (Run query).
 - e.g created('Language', Year desired)
 - created(X, Y). % Gives you first language followed by year.
+
+
+Queries run in program:
+- Show all languages older than the year 2000.
+older_than(L, 2000). See line 178 for rule.
+
+- Show all ancestors of C++.
+setof(A, ancestor(A, 'C++'), Ancestors).
+
+- Show all the siblings of C++
+- Show all the cousins of C++
+- Show all the descendants of FORTRAN.
+
+- Is Rust related to Common Lisp? If so, how?
+setof(A, (ancestor(A, 'Rust'), ancestor(A, 'Common Lisp')), Related).
+
+- Is Swift a descendant of Lisp?
 
 Description:
 This is a Prolog program that represents the language history in the 
 figure provided, building facts that identify when each language
-was created, as well as the relationships between
-languages.
+was created, as well as the relationships between languages.
 */
 
 % Create a timeline matching when languages were spawned.
@@ -70,7 +87,7 @@ created('Swift',             2014).
 created('JavaScript ES2017', 2016).
 
 % Parent fact relation parent('Parent', 'Child')
-% Going top to bottom based on when language was created.
+% "Parent is a parent of C if C came directly from P."
 parent('Fortran 1', 'Algol 60').
 parent('Fortran 1', 'PL/1').
 parent('Fortran 1', 'Fortran 77').
@@ -165,7 +182,22 @@ parent('Haskell 2010', 'Swift').
 parent('C# 5.0', 'Swift').
 parent('C# 5.0', 'JavaScript ES2017').
 
-% Use parent relation to establish sibling rule.
+% Use fact when languages were created to establish any languages 
+% older than 2000, or any year.
+older_than(Language, Cutoff) :- created(Language, Y), Y < Cutoff.
+
 % Based on geneology2.txt provided.
-% Sibling "is true if" parent of X is also parent of Y.
-sibling(X, Y) :- parent(P, X), parent(P, Y), X \= Y. % X not equal to itself.
+% Sibling: "is true if" parent of X is also parent of Y.
+% X \= Y, X and Y must be different languages
+sibling(X, Y) :- parent(P, X), parent(P, Y), X \= Y. 
+
+% Ancestor: "A is ancestor of D if a path can be followed from A to D."
+ancestor(A, D) :- parent(A, D).
+ancestor(A, D) :- parent(A, D1), ancestor(D1, D).
+
+% Descendant: "D is a descendant of A if A is an ancestor of D."
+% e.g. child(C, P) :- parent(P, C).
+descendant(D, A) :- ancestor(A, D). % Gives duplicates
+
+% Cousin: "X and Y are cousins if they both share the same ancestor."
+cousin(X, Y) :- ancestor(A, X), ancestor(A, Y).
