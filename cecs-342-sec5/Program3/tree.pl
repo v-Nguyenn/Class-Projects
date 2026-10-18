@@ -18,22 +18,32 @@ Run Program:
 - e.g created('Language', Year desired)
 - created(X, Y). % Gives you first language followed by year.
 
-
 Queries run in program:
 - Show all languages older than the year 2000.
-older_than(L, 2000). See line 178 for rule.
+% Press ; for the next answer.
+older_than(L, 2000). 
 
-- Show all ancestors of C++.
+% - Show all ancestors of C++.
 setof(A, ancestor(A, 'C++'), Ancestors).
 
-- Show all the siblings of C++
-- Show all the cousins of C++
-- Show all the descendants of FORTRAN.
+% - Show all the siblings of C++
+setof(S, sibling('C++', S), Siblings).
 
-- Is Rust related to Common Lisp? If so, how?
-setof(A, (ancestor(A, 'Rust'), ancestor(A, 'Common Lisp')), Related).
+% - Show all the cousins of C++
+setof(C, cousin('C++', C), Cousins).
 
-- Is Swift a descendant of Lisp?
+% - Show all the descendants of FORTRAN.
+setof(D, descendant(D, 'Fortran 1'), Descendants).
+
+% - Is Rust related to Common Lisp? If so, how?
+descendant('Rust', 'Common Lisp').
+descendant('Common Lisp', 'Rust').
+sibling('Rust', 'Common Lisp').
+once(cousin('Rust', 'Common Lisp')). % once because cousin checks all paths.
+setof(A, (ancestor(A, 'Rust'), ancestor(A, 'Common Lisp')), SharedAncestors).
+
+% - Is Swift a descendant of Lisp?
+once(descendant('Swift', 'Lisp')).
 
 Description:
 This is a Prolog program that represents the language history in the 
@@ -200,4 +210,4 @@ ancestor(A, D) :- parent(A, D1), ancestor(D1, D).
 descendant(D, A) :- ancestor(A, D). % Gives duplicates
 
 % Cousin: "X and Y are cousins if they both share the same ancestor."
-cousin(X, Y) :- ancestor(A, X), ancestor(A, Y).
+cousin(X, Y) :- ancestor(A, X), ancestor(A, Y), X \= Y.
