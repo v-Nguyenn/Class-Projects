@@ -13,13 +13,13 @@ each and every line of code in this program.
 Run Program:
 - (Tested on SWI-Prolog 10.0.2)
 
-- swipl tree.pl
-- ?- (Run query).
-- e.g created('Language', Year desired)
-- created(X, Y). % Gives you first language followed by year.
+swipl tree.pl
+?- (Run query).
+e.g created('Language', Year desired)
+created(X, Y). % Gives you first language followed by year.
 
 Queries run in program:
-- Show all languages older than the year 2000.
+% - Show all languages older than the year 2000.
 % Press ; for the next answer.
 older_than(L, 2000). 
 
