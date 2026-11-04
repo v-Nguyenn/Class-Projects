@@ -1,0 +1,6 @@
+{
+  // Tell rust-analyzer extension where my Rust projects are
+  "rust-analyzer.linkedProjects": [
+    "cecs-342-sec5/Program4/heap_sort/Cargo.toml"
+  ]
+}
