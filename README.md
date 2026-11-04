@@ -9,16 +9,14 @@ This repository contains coursework organized by class. The goal is to keep scho
 - Make it easy to find, run, and review projects.
 - Avoid committing generated files and local machine metadata.
 
-## Current Course Folders
-
-- `cecs-342-sec5` (Principles of Programming Languages)
-
 ### Classes taken at California State University, Long Beach
 
 - `cecs-229-sec1/` (Discrete Structures with Computing Applications 2)
 - `cecs-277-sec8/` (Object Oriented Programming)
 - `cecs-325-sec1/` (Systems Programmings)
 - `cecs-328/` (Algorithms)
+- `cecs-342-sec5` (Intro to Programming Principles)
+- `cecs-381-sec2` (Stochastic Computing)
 
 - `` ()
 - `` ()
