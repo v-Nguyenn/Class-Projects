@@ -39,7 +39,7 @@ fn main() {
     heap_sort(&mut binary_tree);              // Lend binary_tree to sort.
     let binary_tree = binary_tree; // We shadow and lock it down.
     
-    // Test: build_max_heap (sorted)
+    // Test: build_max_heap (sort)
     println!("{:?}", binary_tree);
 
     // Print out binary tree after sort. Smallest number should be at the root.
@@ -73,25 +73,30 @@ fn create_binary_tree() -> [u32; ARRAY_SIZE] {
 
 /// Sorts the array while maintaining the binary heap/tree
 fn heap_sort(tree: &mut [u32; ARRAY_SIZE]){
-    build_max_heap(tree); // Use build_max_heap
-//     for i in n..0{
-//         tree.swap(a, b);
-//         n = n - 1;
-//         Heapify(tree, 0);
-//     }
+    // First half
+    build_max_heap(tree); 
+    // Reverse 30 ... 1 because i is the last unsorted spot each round.
+    // Second half
+    for i in (1..ARRAY_SIZE).rev() { 
+        tree.swap(0, i); 
+        // We move the biggest number to i the sorted end. 
+        heapify(tree, 0, i);
+        println!("{:?}", tree);
+    }
 }
 
 
 /// Helper function to move highest value to index 0,
 /// Making every parent >= its children.
 fn build_max_heap(tree: &mut [u32; ARRAY_SIZE]){
+    // We start at 1 because index 0 has no parent
     for i in 1..ARRAY_SIZE {
         let mut current = i;
-
+        // We stop at the root 0 which has no parent
         while current != 0 {
             let parent = (current - 1) / 2;
-
-            if tree[current] > tree[parent] {
+            // Check parent and swap if greater than parent.
+            if tree[current] > tree[parent] { 
                 tree.swap(current, parent);
                 current = parent;
             } else {
@@ -101,17 +106,34 @@ fn build_max_heap(tree: &mut [u32; ARRAY_SIZE]){
     }
 }
 
-/*
-/// Helper function for heapsort, moves highest value to last index.
-fn heapify(tree: &mut [u32; ARRAY_SIZE){
-    let mut left = 2i + 1;
-    let mut right = 2i + 2;
-
-    if(left <= n) 
+/// Moves the value at start down until every parent is greater than child.
+/// Leaving the highest value at the root.
+/// start: the dindex which needs go down the tree, the root.
+/// end: the first index of the sorted section
+fn heapify(tree: &mut [u32; ARRAY_SIZE], start: usize, end: usize){
+    let mut current = start;
+    // Keep going while current node has left child
+    while 2 * current + 1 < end { 
+        // left and right child index respectively
+        let left = 2 * current + 1;  
+        let right = 2 * current + 2; 
+    
+        // Pick the bigger child
+        let mut bigger_child = left;
+        if right < end && tree[right] > tree[left] {
+            bigger_child = right;
+        }
+        if tree[bigger_child] > tree[current]{
+            tree.swap(bigger_child, current);
+            current = bigger_child; 
+        } else {
+            break;
+        }
+    }
+    
 }
 
 /// 
 fn print_tree(any_array: &[u32; ARRAY_SIZE]){
     todo!()
 }
-*/
