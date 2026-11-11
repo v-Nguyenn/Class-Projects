@@ -22,7 +22,7 @@ player wins the match.
 
 ;;; Define the rank to value association list.
 (defparameter *rank-values* 
-   '(("2" . 2) ; syntax: (') tells lisp its for data.
+   '(("2" . 2) ; syntax: (') tells lisp it's for data.
      ("3" . 3)
      ("4" . 4)
      ("5" . 5)
@@ -47,23 +47,32 @@ player wins the match.
    hand
    (wins 0))
 
-;; Converts 
+;;; Takes in a suit and converts it to a single letter.
+;;; Returns: One-letter String
 (defun suit-letter (suit)
-   ; Convert suit keyword to single letter
-   (ecase suit
+   (ecase suit ; ecase is like a switch case for Lisp.
    (:spades   "S")
    (:hearts   "H")
    (:diamonds "D")
    (:clubs    "C"))
    )
 
+;;; Takes in a card struct and looks up numeric strength of card.
+;;; Returns: Integer value 
 (defun card-value (card)
-   (card-rank, rank-values):
-   )
+   ;; let creates local variables * means the steps below can use the ones above.
+   (let* ((rank (card-rank card)) ; card-rank comes from defstruct macro 
+          (pair (assoc card *rank-values* :test #'string=)) ; assoc to look through list pairs.
+          (value (cdr pair))) ; cdr to grab the right side of the pair which is a value.
+      value))                 ; return the value
 
+;;; Takes a card and string to format for printing such as 10H or AS
+;;; Returns: A string
 (defun card-string (card)
+
    )
 
+;;; Runs the whole program from start to finish.
 (defun main
 ;; Build an ordered 52-card deck and display it 
 ;; Shuffle the deck and display the shuffled deck.
