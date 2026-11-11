@@ -47,15 +47,16 @@ player wins the match.
    hand
    (wins 0))
 
-
-
-;; Converts
-(defun suit-letter (n)
+;; Converts 
+(defun suit-letter (suit)
+   ; Convert suit keyword to single letter
+   (ecase case
+   (:spades   "S")
+   (:hearts   "H")
+   (:diamonds "D")
+   (:clubs    "C"))
    )
 
-
-(defun card-string (n)
-   )
 
 (defun main
 ;; Build an ordered 52-card deck and display it 
