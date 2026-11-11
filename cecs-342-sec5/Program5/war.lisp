@@ -50,13 +50,19 @@ player wins the match.
 ;; Converts 
 (defun suit-letter (suit)
    ; Convert suit keyword to single letter
-   (ecase case
+   (ecase suit
    (:spades   "S")
    (:hearts   "H")
    (:diamonds "D")
    (:clubs    "C"))
    )
 
+(defun card-value (card)
+   (card-rank, rank-values):
+   )
+
+(defun card-string (card)
+   )
 
 (defun main
 ;; Build an ordered 52-card deck and display it 
