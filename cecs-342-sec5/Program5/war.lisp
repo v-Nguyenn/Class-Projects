@@ -14,6 +14,18 @@ Description:
 A program which shuffles a standard 52-card deck and deals half
 to each of the two players and plays 26 games to decide which
 player wins the match.
+
+How to run:
+- Install Common Lisp
+- Navigate to folder where program is
+
+Run in terminal:
+sbcl --script war.lisp
+
+Exit: either or work.
+
+(quit) 
+(sb-ext:exit)
 |#
 
 ;;; Define the global suit list with defparameter * *, naming for global
@@ -47,8 +59,8 @@ player wins the match.
    hand
    (wins 0))
 
-;;; Takes in a suit and converts it to a single letter.
-;;; Returns: One-letter String
+;;; Takes in a suit keyword and converts it to a single letter.
+;;; Returns: one-letter string
 (defun suit-letter (suit)
    (ecase suit ; ecase is like a switch case for Lisp.
    (:spades   "S")
@@ -61,16 +73,17 @@ player wins the match.
 ;;; Returns: Integer value 
 (defun card-value (card)
    ;; let creates local variables * means the steps below can use the ones above.
-   (let* ((rank (card-rank card)) ; card-rank comes from defstruct macro 
-          (pair (assoc card *rank-values* :test #'string=)) ; assoc to look through list pairs.
+   (let* ((rank (card-rank card))                           ; card-rank comes from defstruct macro 
+          (pair (assoc rank *rank-values* :test #'string=)) ; assoc to look through list pairs.
           (value (cdr pair))) ; cdr to grab the right side of the pair which is a value.
       value))                 ; return the value
 
-;;; Takes a card and string to format for printing such as 10H or AS
+;;; Takes a card and formats for printing such as 10H or AS
 ;;; Returns: A string
 (defun card-string (card)
-
-   )
+   (format nil "~a~a"                    ; format nil returns the string filling each ~a in order.
+         (card-rank card)                 ; First element to be combined
+         (suit-letter (card-suit card)))) ; Second element calling suit-letter to convert the suit first.
 
 ;;; Runs the whole program from start to finish.
 (defun main
