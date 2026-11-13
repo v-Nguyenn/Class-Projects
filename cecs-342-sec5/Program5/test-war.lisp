@@ -4,8 +4,9 @@ Class: CECS 342 Section 5
 Project Name: Prog 5 - One Card War Lisp
 Due Date: 11/19/2026
 
-Description: These are test cases after making every 
-             defstruct or function. 
+Description: 
+These are test cases after making every 
+defstruct or function. 
 
 How to run:
 - Ensure Common Lisp is installed.
@@ -37,7 +38,7 @@ Exit: either or work.
 ;;; Check global variable *rank-values* prints out pairs,
 ;;; first pair, left half and right half, and if lookup works.
 (format t "---------------------------------------------- ~%")
-(format t "rank-values list: ~% ")
+(format t "rank-values list: ~%")
 (print *rank-values*)
 (terpri) ; terminate print line 
 ;; How many pairs
@@ -54,3 +55,19 @@ Exit: either or work.
 ;; Does a lookup work ?
 (format t "lookup K: ~s (expect 13)~%"
          (cdr (assoc "K" *rank-values* :test #'string=)))
+
+
+;;; Check card struct, the whole card structure, rank, suit 
+;;; checks if card is valid.
+(format t "---------------------------------------------- ~%")
+(format t "card struct: ~%")
+(defvar c (make-card :rank "4" :suit :spades))
+
+(print c)                                     ; see all
+(format t "~%Expected Rank: \"4\" ~%" )       ;read first place
+(format t "Actual Rank: ~s~%" (card-rank c)) ;read second place
+(format t "Expected Suit: :spades~%")
+(format t "Actual Suit: ~s~%" (card-suit c))
+;; -p means predicated, answers a yes/no question.
+(format t "Is it a card? ~s (expect T)~%" (card-p c))      
+(format t "Is 15 a card? ~s (expect NIL)~%" (card-p 15)) ;reject non-cards
