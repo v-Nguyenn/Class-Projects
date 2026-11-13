@@ -81,9 +81,20 @@ Exit: either or work.
 ;;; Takes a card and formats for printing such as 10H or AS
 ;;; Returns: A string
 (defun card-string (card)
-   (format nil "~a~a"                    ; format nil returns the string filling each ~a in order.
+   (format nil "~a~a"                     ; Format nil returns the string filling each ~a in order.
          (card-rank card)                 ; First element to be combined
          (suit-letter (card-suit card)))) ; Second element calling suit-letter to convert the suit first.
+
+;;; Builds the 52-card deck, one suit at a time
+;;; Returns: a list of 52 cards.
+(defun make-deck ()
+   ;; we use apend and not collect bc it joins each suit's 13 cards into one flat list of 52 cards.
+   (loop for suit in *suit-list*                            ; suit is outer because suit is first
+         append (loop for (rank . val) in *rank-values*     
+               collect (make-card :rank rank :suit suit)))) ; call the make-card constructor  
+
+;;; Prints a list of cards, 13 per row by default
+;;; Returns: nothing
 
 ;;; Runs the whole program from start to finish.
 (defun main
