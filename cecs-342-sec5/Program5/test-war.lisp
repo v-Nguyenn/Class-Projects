@@ -26,8 +26,8 @@ Exit: either or work.
 
 ;;; Check global variable *suit-list* prints out the list, 
 ;;; expected length, and the first one.
-(format t "---------------------------------------------- ~%")
-(format t "Testing suit-list...~%")
+(format t "----------------------------------------------~%")
+(format t "------------Testing suit-list...--------------~%")
 (format t "----------------------------------------------")
 (print *suit-list*)
 (terpri)
@@ -38,8 +38,8 @@ Exit: either or work.
 
 ;;; Check global variable *rank-values* prints out pairs,
 ;;; first pair, left half and right half, and if lookup works.
-(format t "---------------------------------------------- ~%")
-(format t "Testing rank-values list... ~%")
+(format t "----------------------------------------------~%")
+(format t "------------Testing rank-values list...-------~%")
 (format t "---------------------------------------------- ")
 (print *rank-values*)
 (terpri) ; terminate print line 
@@ -58,8 +58,8 @@ Exit: either or work.
 
 ;;; card struct test   
 ;;; the whole card structure, rank, suit checks if card is valid.
-(format t "---------------------------------------------- ~%")
-(format t "Testing card struct... ~%")
+(format t "----------------------------------------------~%")
+(format t "-----------Testing card struct...-------------~%")
 (format t "----------------------------------------------")
 (defparameter *c* (make-card :rank "4" :suit :spades))
 (print *c*)  
@@ -70,13 +70,13 @@ Exit: either or work.
 (format t "Actual Suit: ~s~%" (card-suit *c*))
 ;; -p means predicated, answers a yes/no question.
 (format t "Is it a card? ~s (expect T)~%" (card-p *c*))      
-(format t "Is 15 a card? ~s (expect NIL)~%" (card-p 15)) ;reject non-cards
+(format t "Is 15 a card? ~s (expect NIL)~%~%" (card-p 15)) ;reject non-cards
 
-;;; Player struct test
+;;; Player struct tests
 ;;; Test making a player, wins 
-(format t "---------------------------------------------- ~%")
-(format t "Testing player struct...~%")
-(format t "---------------------------------------------- ~%")
+(format t "----------------------------------------------~%")
+(format t "-----------Testing player struct...-----------~%")
+(format t "----------------------------------------------~%")
 (defparameter *p* (make-player :name "Joe"))
 (format t "Expected wins: 0~%")
 (format t "Actual wins: ~s~%"(player-wins *p*))
@@ -87,12 +87,23 @@ Exit: either or work.
 ; player second win.
 (incf (player-wins *p*))
 (format t "Expected wins: 2~%")
-(format t "Actual wins: ~s~%"(player-wins *p*))
+(format t "Actual wins: ~s~%~%"(player-wins *p*))
+
+;;; suit-letter tests
+;;; Checks all four suits, and a wrong one :stars, ignore-errors
+(format t "----------------------------------------------~%")
+(format t "------------Testing suit-letter...------------~%")
+(format t "----------------------------------------------~%")
+(format t "Expected suit: \"S\" ~%")
+(format t "Actual suit: ~s~%" (suit-letter :spades))
+(format t "Expected suit: NIL (bad suit rejected)~%")
+(format t "Actual: ~s~%" (ignore-errors (suit-letter :stars)))
+(format t "~%")     ; blank line
 
 ;;; Check make-deck builds 52 cards in suit order.
 ;;; Make deck once, print whole deck
 (format t "---------------------------------------------- ~%")
-(format t "Testing make-deck function... ~%")
+(format t "------------Testing make-deck function...----- ~%")
 (format t "---------------------------------------------- ~%")
 (defparameter *deck* (make-deck))
 ;; Checks first card
