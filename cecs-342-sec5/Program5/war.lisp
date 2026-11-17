@@ -42,7 +42,7 @@ Exit: either or work.
      ("7" . 7)
      ("8" . 8)
      ("9" . 9)
-     ("10" . 10)
+     ("10". 10)
      ("J" . 11)
      ("Q" . 12)
      ("K" . 13)
@@ -95,13 +95,21 @@ Exit: either or work.
 
 ;;; Prints a list of cards, 13 per row by default
 ;;; Returns: nothing
+;; Pass the list of cards and &optional 13 card per row by default.
+(defun display-cards (cards &optional (each-row 13)) 
+   (loop for card in cards       ; We loop through the list.
+      for i from 1               ; i goes up each time, just goes up until for runs out or list decides.
+      do (format t "~4a "(card-string card)) ; ~4a pads 4 character wide, use card-string to convert the suit first.
+         ;; when is an if with no else statement checks if 0 remainder on row.
+         (when (= (mod i each-row) 0) 
+            (terpri))))          ; prints newline after i becomes 13, 26, 39, 52 
 
 ;;; Runs the whole program from start to finish.
-(defun main
+(defun main ()
 ;; Build an ordered 52-card deck and display it 
 ;; Shuffle the deck and display the shuffled deck.
 ;; (Optional) Ask for 2 player's names.
 ;; Deal the first 26 cards to player 1 and the last 26 cards to player 2
 ;; Display each hand, playing 26 games
 ;; Displays the result of every game, the final score, and the match winner.
-())
+)
