@@ -32,9 +32,9 @@ Exit: either or work.
 (print *suit-list*)
 (terpri)
 (format t "Expected length: 4 ~%")
-(format t "Actual length: ~s~%" (length *suit-list*))
+(format t "Actual length:   ~s~%" (length *suit-list*))
 (format t "Expected first: :spades~%")
-(format t "Actual first: ~s~%~%" (first *suit-list*))
+(format t "Actual first:   ~s~%~%" (first *suit-list*))
 
 ;;; Check global variable *rank-values* prints out pairs,
 ;;; first pair, left half and right half, and if lookup works.
@@ -49,9 +49,9 @@ Exit: either or work.
 ;; What is the first pair, and it's left and right side of the pair.
 (format t "First pair: ~s~%" (first *rank-values*))
 (format t "Expected key: \"2\"~%")
-(format t "Actual key: ~s~%" (car (first *rank-values*)))
+(format t "Actual key:   ~s~%" (car (first *rank-values*)))
 (format t "Expected value: 2 ~%")
-(format t "Actual value: ~s~%" (cdr (first *rank-values*)))
+(format t "Actual value:   ~s~%" (cdr (first *rank-values*)))
 ;; Does a lookup work ?
 (format t "lookup K: ~s (expect 13)~%~%"
          (cdr (assoc "K" *rank-values* :test #'string=)))
@@ -65,9 +65,9 @@ Exit: either or work.
 (print *c*)  
 (terpri)                                  ; see all
 (format t "~%Expected Rank: \"4\" ~%" )       ;read first place
-(format t "Actual Rank: ~s~%" (card-rank *c*)) ;read second place
+(format t "Actual Rank:   ~s~%" (card-rank *c*)) ;read second place
 (format t "Expected Suit: :spades~%")
-(format t "Actual Suit: ~s~%" (card-suit *c*))
+(format t "Actual Suit:   ~s~%" (card-suit *c*))
 ;; -p means predicated, answers a yes/no question.
 (format t "Is it a card? ~s (expect T)~%" (card-p *c*))      
 (format t "Is 15 a card? ~s (expect NIL)~%~%" (card-p 15)) ;reject non-cards
@@ -79,15 +79,17 @@ Exit: either or work.
 (format t "----------------------------------------------~%")
 (defparameter *p* (make-player :name "Joe"))
 (format t "Expected wins: 0~%")
-(format t "Actual wins: ~s~%"(player-wins *p*))
+(format t "Actual wins:   ~s~%"(player-wins *p*))
 ; player wins so increment by 1
 (incf (player-wins *p*))
 (format t "Expected wins: 1~%")
-(format t "Actual wins: ~s~%"(player-wins *p*)) 
+(format t "Actual wins:   ~s~%"(player-wins *p*)) 
 ; player second win.
 (incf (player-wins *p*))
 (format t "Expected wins: 2~%")
-(format t "Actual wins: ~s~%~%"(player-wins *p*))
+(format t "Actual wins:   ~s~%"(player-wins *p*))
+(format t "~%")     ; blank line
+
 
 ;;; suit-letter tests
 ;;; Checks all four suits, and a wrong one :stars, ignore-errors
@@ -95,10 +97,34 @@ Exit: either or work.
 (format t "------------Testing suit-letter...------------~%")
 (format t "----------------------------------------------~%")
 (format t "Expected suit: \"S\" ~%")
-(format t "Actual suit: ~s~%" (suit-letter :spades))
+(format t "Actual suit:   ~s~%" (suit-letter :spades))
+(format t "Expected suit: \"C\" ~%")
+(format t "Actual suit:   ~s~%" (suit-letter :clubs))
+(format t "Expected suit: \"D\" ~%")
+(format t "Actual suit:   ~s~%" (suit-letter :diamonds))
+(format t "Expected suit: \"H\" ~%")
+(format t "Actual suit:   ~s~%" (suit-letter :hearts))
 (format t "Expected suit: NIL (bad suit rejected)~%")
-(format t "Actual: ~s~%" (ignore-errors (suit-letter :stars)))
+(format t "Actual:        ~s~%" (ignore-errors (suit-letter :stars)))
 (format t "~%")     ; blank line
+
+;;; card-value
+;;; Test the values of each card
+(format t "----------------------------------------------~%")
+(format t "------------Testing card-value...------------~%")
+(format t "----------------------------------------------~%")
+;; TODO - card rank "7" should be 7
+(format t "Expected value of 7: 7~%")
+(format t "Actual: ~s~%" (card-value (make-card :rank "7" :suit :hearts)))
+;; TODO - card rank "10" should be 10 
+(format t "Expected value of 10: 10~%")
+(format t "Actual: ~s~%" (card-value (make-card :rank "10" :suit :hearts)))
+
+;;; card-string
+;;; test conversion of cards to string
+;; "10" with hearts should be "10H"
+;; "A" with spades should be "AS"
+
 
 ;;; Check make-deck builds 52 cards in suit order.
 ;;; Make deck once, print whole deck
