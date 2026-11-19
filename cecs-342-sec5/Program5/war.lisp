@@ -40,7 +40,7 @@ Exit: either or work.
      ("5" . 5)
      ("6" . 6)
      ("7" . 7)
-     ("8" . 8)
+     ("8" . 8)                                     
      ("9" . 9)
      ("10". 10)
      ("J" . 11)
@@ -75,8 +75,8 @@ Exit: either or work.
    ;; let creates local variables * means the steps below can use the ones above.
    (let* ((rank (card-rank card))                           ; card-rank comes from defstruct macro 
           (pair (assoc rank *rank-values* :test #'string=)) ; assoc to look through list pairs.
-          (value (cdr pair))) ; cdr to grab the right side of the pair which is a value.
-      value))                 ; return the value
+          (value (cdr pair)))                               ; cdr or rest - grabs right side of the pair which is a value.
+      value))                                               ; return the value
 
 ;;; Takes a card and formats for printing such as 10H or AS
 ;;; Returns: A string
@@ -97,17 +97,27 @@ Exit: either or work.
 ;;; Returns: nothing
 ;; Pass the list of cards and &optional 13 card per row by default.
 (defun display-cards (cards &optional (each-row 13)) 
-   (loop for card in cards       ; We loop through the list.
-      for i from 1               ; i goes up each time, just goes up until for runs out or list decides.
-      do (format t "~4a "(card-string card)) ; ~4a pads 4 character wide, use card-string to convert the suit first.
-         ;; when is an if with no else statement checks if 0 remainder on row.
-         (when (= (mod i each-row) 0) 
-            (terpri))))          ; prints newline after i becomes 13, 26, 39, 52 
+   (loop for card in cards                   
+      for i from 1                           ; i goes up each time, just goes up until for runs out or list decides.
+      do (format t "~4a "(card-string card)) ; ~4a pads 4 character wide, use card-string to convert the suit first. 
+         (when (= (mod i each-row) 0)        ; when - if with no else statement checks if 0 remainder on row. 
+            (terpri))))                      ; prints newline after i becomes 13, 26, 39, 52 
+
+;;; Shuffles a list of cards keeping the original deck the same 
+;;; Returns: a new list 
+(defun shuffle (deck)  
+   (let ((vec (coerce deck 'vector)))              ; copy list to new vector
+      (loop for i from (1- (length vec)) downto 1  ; goes from last index down to 1 
+         for j = (random (+ i 1))                  ; picks a random index from 0 to i for j so we can swap with i
+         do (rotatef (aref vec i)                  ; swaps card at i with card with j 
+                     (aref vec j)))
+      (coerce vec 'list)))                         ; vector to list, since the spec says shuffle returns a list
 
 ;;; Runs the whole program from start to finish.
 (defun main ()
 ;; Build an ordered 52-card deck and display it 
 ;; Shuffle the deck and display the shuffled deck.
+(setf *random-state* (make-random-state t))*random-state*
 ;; (Optional) Ask for 2 player's names.
 ;; Deal the first 26 cards to player 1 and the last 26 cards to player 2
 ;; Display each hand, playing 26 games
