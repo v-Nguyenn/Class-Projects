@@ -119,12 +119,20 @@ Exit: either or work.
 ;; TODO - card rank "10" should be 10 
 (format t "Expected value of 10: 10~%")
 (format t "Actual: ~s~%" (card-value (make-card :rank "10" :suit :hearts)))
+(terpri)
 
 ;;; card-string
 ;;; test conversion of cards to string
+(format t "----------------------------------------------~%")
+(format t "------------Testing card-string...------------~%")
+(format t "----------------------------------------------~%")
 ;; "10" with hearts should be "10H"
+(format t "Expected: \"10H\"~%")
+(format t "Actual:   ~s~%" (card-string (make-card :rank "10" :suit :hearts)))
 ;; "A" with spades should be "AS"
-
+(format t "Expected: \"AS\"~%")
+(format t "Actual:   ~s~%" (card-string (make-card :rank "A" :suit :spades)))
+(terpri)
 
 ;;; Check make-deck builds 52 cards in suit order.
 ;;; Make deck once, print whole deck
