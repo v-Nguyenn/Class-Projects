@@ -114,11 +114,14 @@ Exit: either or work.
 (format t "------------Testing card-value...------------~%")
 (format t "----------------------------------------------~%")
 ;; TODO - card rank "7" should be 7
-(format t "Expected value of 7: 7~%")
-(format t "Actual: ~s~%" (card-value (make-card :rank "7" :suit :hearts)))
+(format t "Expected value of 7:  7~%")
+(format t "Actual:               ~s~%" (card-value (make-card :rank "7" :suit :hearts)))
 ;; TODO - card rank "10" should be 10 
 (format t "Expected value of 10: 10~%")
-(format t "Actual: ~s~%" (card-value (make-card :rank "10" :suit :hearts)))
+(format t "Actual:               ~s~%" (card-value (make-card :rank "10" :suit :hearts)))
+;; card rank "A" should be 15
+(format t "Expected value of A:  14~%")
+(format t "Actual:               ~s~%" (card-value (make-card :rank "A" :suit :hearts)))
 (terpri)
 
 ;;; card-string
@@ -146,3 +149,34 @@ Exit: either or work.
 (format t "Whole Deck: ~%")
 (print (mapcar #'card-string *deck*))
 (terpri)
+(terpri)
+
+;;; display-cards
+;;; Prints a list of cards, should be 13 by default
+(format t "---------------------------------------------- ~%")
+(format t "--------Testing display-cards function...----- ~%")
+(format t "---------------------------------------------- ~%")
+;;; shuffle decks
+(setf *random-state* (make-random-state t))    ; seed once, near the top of the test file
+(defparameter *cards* (make-deck))
+(defparameter *shuffled-1* (shuffle *cards*))
+(defparameter *shuffled-2* (shuffle *cards*))
+;; Show all three so you can see them
+(format t "Original:~%") 
+(display-cards *cards*)
+(terpri)
+(format t "Shuffle 1:~%") 
+(display-cards *shuffled-1*)
+(terpri)
+(format t "Shuffle 2:~%") 
+(display-cards *shuffled-2*)
+(terpri)
+;; Same length as the original
+(format t "Expected length: 52~%")
+(format t "Actual length:   ~s~%" (length *shuffled-1*))
+;; Original is unchanged
+(format t "Expected original first: \"2S\"~%")
+(format t "Actual original first:   ~s~%" (card-string(first *cards*)))
+;; Two shuffles give different orders
+(format t "Shuffles identical? ~s (expect NIL)~%" (equal *shuffled-1* *shuffled-2*))
+
