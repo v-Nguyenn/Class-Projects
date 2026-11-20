@@ -58,7 +58,7 @@ Exit: either or work.
    hand
    (wins 0))
 
-;;; Takes in a suit keyword and converts it to a single letter.
+;;; suit-letter - Takes in a suit keyword and converts it to a single letter.
 ;;; Returns: one-letter string
 (defun suit-letter (suit)
    (ecase suit ; ecase is like a switch case for Lisp.
@@ -68,7 +68,7 @@ Exit: either or work.
    (:clubs    "C"))
    )
 
-;;; Takes in a card struct and looks up numeric strength of card.
+;;; card-value - Takes in a card struct and looks up numeric strength of card.
 ;;; Returns: Integer value 
 (defun card-value (card)
    ;; let creates local variables * means the steps below can use the ones above.
@@ -77,14 +77,14 @@ Exit: either or work.
           (value (cdr pair)))                               ; cdr or rest - grabs right side of the pair which is a value.
       value))                                               ; return the value
 
-;;; Takes a card and formats for printing such as 10H or AS
+;;; card-string - Takes a card and formats for printing such as 10H or AS
 ;;; Returns: A string
 (defun card-string (card)
-   (format nil "~a~a"                     ; Format nil returns the string filling each ~a in order.
-         (card-rank card)                 ; First element to be combined
-         (suit-letter (card-suit card)))) ; Second element calling suit-letter to convert the suit first.
+   (format nil "~a~a"                     ; format nil returns the string filling each ~a in order.
+         (card-rank card)                 ; first element to be combined
+         (suit-letter (card-suit card)))) ; second element calling suit-letter to convert the suit first.
 
-;;; Builds the 52-card deck, one suit at a time
+;;; make-deck - Builds the 52-card deck, one suit at a time
 ;;; Returns: a list of 52 cards.
 (defun make-deck ()
    ;; we use apend and not collect bc it joins each suit's 13 cards into one flat list of 52 cards.
@@ -92,7 +92,7 @@ Exit: either or work.
          append (loop for (rank . val) in *rank-values*     
                collect (make-card :rank rank :suit suit)))) ; call the make-card constructor  
 
-;;; Prints a list of cards, 13 per row by default
+;;; display-cards - Prints a list of cards, 13 per row by default
 ;;; Returns: nothing
 ;; Pass the list of cards and &optional 13 card per row by default.
 (defun display-cards (cards &optional (each-row 13)) 
@@ -110,22 +110,39 @@ Exit: either or work.
          for j = (random (+ i 1))                  ; picks a random index from 0 to i for j so we can swap with i
          do (rotatef (aref vec i)                  ; swaps card at i with card with j 
                      (aref vec j)))
-      (coerce vec 'list)))                         ; vector to list, since the spec says shuffle returns a list
+      (coerce vec 'list)))                         ; change data type from vector to list 
 
-;;; deal - gives player half of the deck to Player 1 and the second half to Player 2
+;;; deal - Gives player half of the deck to Player 1 and the second half to Player 2
 ;;; Returns: nothing
 (defun deal (deck player1 player2)
    (setf (player-hand player1) (subseq deck 0 26))   ; goes from index start, up to but does not include the end
    (setf (player-hand player2) (subseq deck 26))     ; goes from start to the end of the list
    )
 
+;;; play-game - Compares two cards, prints the game results, and adds 1 to the winner's wins.
+;;; Returns: winning player or NIL for a tie.
+(defun play-game (game-num p1 p2 card1 card2)
+   (let ((v1 (card-value card1))                                     ; assign card values to v1 and v2, 2-14, Ace high.
+         (v2 (card-value card2)))
+      ;; Display winner based on sheet ~2d pads the game number, ~4a pads each player card
+      (format t "Game ~2d: ~a plays ~4a   ~a plays ~4a" 
+                  game-num (player-name p1) (card-string card1) (player-name p2) (card-string card2))
+      (cond ((> v1 v2) (format t "-> ~a wins~%" (player-name p1))
+                        (incf (player-wins p1))                      ; we increment the player wins by 1     
+                           p1)                                       ; return p1 as winner 
+            ((< v1 v2) (format t "-> ~a wins~%" (player-name p2))
+                        (incf (player-wins p2))
+                           p2)
+            (t         (format t "-> Tie~%") nil))))                ; returns NIL for a tie where nobody scores.s   
+
+
 ;;; Runs the whole program from start to finish.
 (defun main ()
 (setf *random-state* (make-random-state t))
 
-(let* ((deck (make-deck))                   ;; Make the deck.
-      (shuffled-deck (shuffle deck))        ;; Shuffle the deck. 
-      (p1 (make-player :name "Player 1"))   ;; Create the players.
+(let* ((deck (make-deck))                   ;; make the deck
+      (shuffled-deck (shuffle deck))        ;; shuffle the deck
+      (p1 (make-player :name "Player 1"))   ;; create the players
       (p2 (make-player :name "Player 2")))  
 
 ;; Display created new deck of 52 cards.
@@ -136,17 +153,17 @@ Exit: either or work.
 (format t "Shuffled deck:~%")
 (display-cards shuffled-deck)
 (terpri)
-;; Deal the first 26 cards to player 1 and the last 26 cards to player 2
+;; Deal the first 26 cards to player 1 and the last 26 cards to player 2.
 (deal shuffled-deck p1 p2)
-;; Display Player 1 hand
+;; Display Player 1 hand.
 (format t "Player 1's hand: (show 26 cards)~%")
 (display-cards (player-hand p1))
 (terpri)
-;; Display Player 2 hand
+;; Display Player 2 hand.
 (format t "Player 2's hand: (show 26 cards)~%")
 (display-cards (player-hand p2))
 (terpri)
-;; Displays the result of every game
+;; Displays the result of every game.
 (format t "--- Let the games begin ---~%")
 
 ;; the final score, and the match winner.
