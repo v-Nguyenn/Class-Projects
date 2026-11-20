@@ -3,7 +3,6 @@ Name: Vincent Nguyen
 Class: CECS 342 Section 5
 Project Name: Prog 5 - One Card War Lisp
 Due Date: 11/19/2026
-
 I certify that this program is my own original work. I did not
 copy any part of this program from any other source including
 inappropriate AI use. I did not share this program with anyone.
@@ -103,7 +102,7 @@ Exit: either or work.
          (when (= (mod i each-row) 0)        ; when - if with no else statement checks if 0 remainder on row. 
             (terpri))))                      ; prints newline after i becomes 13, 26, 39, 52 
 
-;;; Shuffles a list of cards keeping the original deck the same 
+;;; shuffle - Mixes a list of cards keeping the original deck.
 ;;; Returns: a new list 
 (defun shuffle (deck)  
    (let ((vec (coerce deck 'vector)))              ; copy list to new vector
@@ -113,13 +112,45 @@ Exit: either or work.
                      (aref vec j)))
       (coerce vec 'list)))                         ; vector to list, since the spec says shuffle returns a list
 
+;;; deal - gives player half of the deck to Player 1 and the second half to Player 2
+;;; Returns: nothing
+(defun deal (deck player1 player2)
+   (setf (player-hand player1) (subseq deck 0 26))   ; goes from index start, up to but does not include the end
+   (setf (player-hand player2) (subseq deck 26))     ; goes from start to the end of the list
+   )
+
 ;;; Runs the whole program from start to finish.
 (defun main ()
-;; Build an ordered 52-card deck and display it 
-;; Shuffle the deck and display the shuffled deck.
-(setf *random-state* (make-random-state t))*random-state*
-;; (Optional) Ask for 2 player's names.
+(setf *random-state* (make-random-state t))
+
+(let* ((deck (make-deck))                   ;; Make the deck.
+      (shuffled-deck (shuffle deck))        ;; Shuffle the deck. 
+      (p1 (make-player :name "Player 1"))   ;; Create the players.
+      (p2 (make-player :name "Player 2")))  
+
+;; Display created new deck of 52 cards.
+(format t "New deck (52 cards):~%")
+(display-cards deck)
+(terpri)
+;; Display shuffled deck of cards of 4 rows.
+(format t "Shuffled deck:~%")
+(display-cards shuffled-deck)
+(terpri)
 ;; Deal the first 26 cards to player 1 and the last 26 cards to player 2
-;; Display each hand, playing 26 games
-;; Displays the result of every game, the final score, and the match winner.
-)
+(deal shuffled-deck p1 p2)
+;; Display Player 1 hand
+(format t "Player 1's hand: (show 26 cards)~%")
+(display-cards (player-hand p1))
+(terpri)
+;; Display Player 2 hand
+(format t "Player 2's hand: (show 26 cards)~%")
+(display-cards (player-hand p2))
+(terpri)
+;; Displays the result of every game
+(format t "--- Let the games begin ---~%")
+
+;; the final score, and the match winner.
+
+   )
+      )
+(main)
