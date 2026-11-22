@@ -1,0 +1,56 @@
+1 run of war.lisp
+
+New deck (52 cards):
+2S   3S   4S   5S   6S   7S   8S   9S   10S  JS   QS   KS   AS   
+2H   3H   4H   5H   6H   7H   8H   9H   10H  JH   QH   KH   AH   
+2D   3D   4D   5D   6D   7D   8D   9D   10D  JD   QD   KD   AD   
+2C   3C   4C   5C   6C   7C   8C   9C   10C  JC   QC   KC   AC   
+
+Shuffled deck:
+JS   9C   10H  4D   3C   9H   5H   5C   6S   KS   5D   JD   9D   
+AC   3S   2C   AH   QH   8S   8C   10S  7H   JC   KC   QS   JH   
+6H   2H   KD   9S   AD   4C   4H   7S   8H   QD   7C   10C  KH   
+7D   3D   6C   3H   6D   5S   2S   10D  4S   QC   AS   2D   8D   
+
+Player 1's hand: (show 26 cards)
+JS   9C   10H  4D   3C   9H   5H   5C   6S   KS   5D   JD   9D   
+AC   3S   2C   AH   QH   8S   8C   10S  7H   JC   KC   QS   JH   
+
+Player 2's hand: (show 26 cards)
+6H   2H   KD   9S   AD   4C   4H   7S   8H   QD   7C   10C  KH   
+7D   3D   6C   3H   6D   5S   2S   10D  4S   QC   AS   2D   8D   
+
+--- Let the games begin ---
+Game  1: Player 1 plays JS     Player 2 plays 6H  -> Player 1 wins
+Game  2: Player 1 plays 9C     Player 2 plays 2H  -> Player 1 wins
+Game  3: Player 1 plays 10H    Player 2 plays KD  -> Player 2 wins
+Game  4: Player 1 plays 4D     Player 2 plays 9S  -> Player 2 wins
+Game  5: Player 1 plays 3C     Player 2 plays AD  -> Player 2 wins
+Game  6: Player 1 plays 9H     Player 2 plays 4C  -> Player 1 wins
+Game  7: Player 1 plays 5H     Player 2 plays 4H  -> Player 1 wins
+Game  8: Player 1 plays 5C     Player 2 plays 7S  -> Player 2 wins
+Game  9: Player 1 plays 6S     Player 2 plays 8H  -> Player 2 wins
+Game 10: Player 1 plays KS     Player 2 plays QD  -> Player 1 wins
+Game 11: Player 1 plays 5D     Player 2 plays 7C  -> Player 2 wins
+Game 12: Player 1 plays JD     Player 2 plays 10C -> Player 1 wins
+Game 13: Player 1 plays 9D     Player 2 plays KH  -> Player 2 wins
+Game 14: Player 1 plays AC     Player 2 plays 7D  -> Player 1 wins
+Game 15: Player 1 plays 3S     Player 2 plays 3D  -> Tie
+Game 16: Player 1 plays 2C     Player 2 plays 6C  -> Player 2 wins
+Game 17: Player 1 plays AH     Player 2 plays 3H  -> Player 1 wins
+Game 18: Player 1 plays QH     Player 2 plays 6D  -> Player 1 wins
+Game 19: Player 1 plays 8S     Player 2 plays 5S  -> Player 1 wins
+Game 20: Player 1 plays 8C     Player 2 plays 2S  -> Player 1 wins
+Game 21: Player 1 plays 10S    Player 2 plays 10D -> Tie
+Game 22: Player 1 plays 7H     Player 2 plays 4S  -> Player 1 wins
+Game 23: Player 1 plays JC     Player 2 plays QC  -> Player 2 wins
+Game 24: Player 1 plays KC     Player 2 plays AS  -> Player 2 wins
+Game 25: Player 1 plays QS     Player 2 plays 2D  -> Player 1 wins
+Game 26: Player 1 plays JH     Player 2 plays 8D  -> Player 1 wins
+
+Final score after 26 games:
+ Player 1: 14 wins
+ Player 2: 10 wins
+ Ties: 2
+
+Player 1 wins!
