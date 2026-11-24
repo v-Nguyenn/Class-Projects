@@ -12,7 +12,7 @@ How to run:
 - Ensure Common Lisp is installed.
 
 - Command to run in terminal on MAC
-sbcl --script test-war.lisp 2>&1 | head -60
+sbcl --script test-war.lisp 2>&1 | head -80
 
 Exit: either or work.
 
@@ -154,7 +154,7 @@ Exit: either or work.
 ;;; display-cards
 ;;; Prints a list of cards, should be 13 by default
 (format t "---------------------------------------------- ~%")
-(format t "--------Testing display-cards function...----- ~%")
+(format t "--------Testing Shuffle function...----------- ~%")
 (format t "---------------------------------------------- ~%")
 ;;; shuffle decks
 (setf *random-state* (make-random-state t))    ; seed once, near the top of the test file
@@ -179,4 +179,49 @@ Exit: either or work.
 (format t "Actual original first:   ~s~%" (card-string(first *cards*)))
 ;; Two shuffles give different orders
 (format t "Shuffles identical? ~s (expect NIL)~%" (equal *shuffled-1* *shuffled-2*))
+(terpri)
 
+;;; deal function
+;;; Prints a list of cards, should be 13 by default
+(format t "---------------------------------------------- ~%")
+(format t "-----------Testing deal function...----------- ~%")
+(format t "---------------------------------------------- ~%")
+(defparameter *deal-deck* (shuffle (make-deck)))
+(defparameter *dp1* (make-player :name "Player 1"))
+(defparameter *dp2* (make-player :name "Player 2"))
+(deal *deal-deck* *dp1* *dp2*)
+(format t "P1 hand:~%")
+(display-cards (player-hand *dp1*)) ; look at dealt hands
+(terpri)
+
+;;; play-game
+;;; plays one game
+(format t "---------------------------------------------- ~%")
+(format t "--------Testing play-game function...--------- ~%")
+(format t "---------------------------------------------- ~%")
+(defparameter *gp1* (make-player :name "Player 1"))
+(defparameter *gp2* (make-player :name "Player 2"))
+(format t "Case 1: A vs 2, expect Player 1 wins~%")
+(format t "Returned: ~s (expect \"Player 1\")~%"
+        (player-name (play-game 1 *gp1* *gp2*
+                                (make-card :rank "A" :suit :spades)
+                                (make-card :rank "2" :suit :hearts))))
+(format t "P1 wins: ~s (expect 1)~%~%" (player-wins *gp1*))
+(terpri)
+
+;;; play-match
+;;; tests play-match,  making a card
+(format t "---------------------------------------------- ~%")
+(format t "--------Testing play-match function...-------- ~%")
+(format t "---------------------------------------------- ~%")
+(defparameter *mp1* (make-player :name "Player 1"))
+(defparameter *mp2* (make-player :name "Player 2"))
+(setf (player-hand *mp1*) (list (make-card :rank "A" :suit :spades)
+                                (make-card :rank "2" :suit :spades)
+                                (make-card :rank "9" :suit :spades)))
+(setf (player-hand *mp2*) (list (make-card :rank "K" :suit :hearts)
+      (make-card :rank "5" :suit :hearts)
+      (make-card :rank "9" :suit :hearts)))
+(format t "Expect: 1 win each, Ties: 1, The match is a tie!~%")
+(play-match *mp1* *mp2*)
+(terpri)
