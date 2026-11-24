@@ -15,16 +15,22 @@ to each of the two players and plays 26 games to decide which
 player wins the match.
 
 How to run:
-- Install Common Lisp
+- Install Common Lisp version used for war.lisp (SBCL 2.6.10)
+   sbcl --verision
+   Exit REPL: either or work.
+   (quit) 
+   (sb-ext:exit) 
+
 - Navigate to folder where program is
 
 Run in terminal:
 sbcl --script war.lisp
 
-Exit: either or work.
+Or Go to the following Common Lisp compilers: 
+https://compilebytes.com/tools/lisp
+https://onecompiler.com/commonlispisp
 
-(quit) 
-(sb-ext:exit)
+Copy and paste program into compiler and click run.
 |#
 
 ;;; Define the global suit list with defparameter * *, naming for global
@@ -115,8 +121,8 @@ Exit: either or work.
 ;;; deal - Gives player half of the deck to Player 1 and the second half to Player 2
 ;;; Returns: nothing
 (defun deal (deck player1 player2)
-   (setf (player-hand player1) (subseq deck 0 26))   ; goes from index start, up to but does not include the end
-   (setf (player-hand player2) (subseq deck 26))     ; goes from start to the end of the list
+   (setf (player-hand player1) (subseq deck 0 26)) ; goes from index start, up to but does not include the end
+   (setf (player-hand player2) (subseq deck 26))   ; goes from start to the end of the list
    )
 
 ;;; play-game - Compares two cards, prints the game results, and adds 1 to the winner's wins.
@@ -135,6 +141,29 @@ Exit: either or work.
                            p2)
             (t         (format t "-> Tie~%") nil))))                ; returns NIL for a tie where nobody scores.s   
 
+;;; play-match - Plays one game per card in the hands, then prints the score and winner
+;;; Returns - Nothing
+(defun play-match (p1 p2)
+   (format t "--- Let the games begin ---~%")
+   (loop for card1 in (player-hand p1)                               ; Loop through each card and use play game to compare
+         for card2 in (player-hand p2)
+         for game-num from 1                                         ; go from 1 until the amount of hands run out
+         do (play-game game-num p1 p2 card1 card2))
+   
+   (let* ((game-num (length (player-hand p1)))                       ; define game-num as the length of player 1's hand size
+      (ties (- game-num (player-wins p1) (player-wins p2))))         ; find the ties by subtracting amount of games by player wins.
+      ;; Pdf format listing all the wins and ties
+      (format t "~%Final score after ~a games:~%" game-num)
+      (format t " ~a: ~a wins~%"(player-name p1) (player-wins p1))
+      (format t " ~a: ~a wins~%"(player-name p2) (player-wins p2))
+      (format t " Ties: ~a~%" ties)
+      ;; cond to compare who won the game or determine if the match is a tie.
+      (cond ((> (player-wins p1) (player-wins p2)) 
+               (format t "~%~a wins!~%" (player-name p1)) p1)
+            ((< (player-wins p1) (player-wins p2)) 
+               (format t "~%~a wins!~%" (player-name p2)) p2)
+            (t                                   
+               (format t "~%The match is a tie!~%") NIL))))
 
 ;;; Runs the whole program from start to finish.
 (defun main ()
@@ -164,10 +193,6 @@ Exit: either or work.
 (display-cards (player-hand p2))
 (terpri)
 ;; Displays the result of every game.
-(format t "--- Let the games begin ---~%")
-
-;; the final score, and the match winner.
-
-   )
-      )
+(play-match p1 p2)
+))
 (main)
